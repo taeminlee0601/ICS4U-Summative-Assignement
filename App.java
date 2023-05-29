@@ -11,5 +11,20 @@ public class App
         stats godzillaStat = new stats(950, 120, 70, 130);
 
         stats odinStat = new stats();
+
+        
+
+
+
+
+        stats anubisStat = new stats (850,110,95,100);
+        stats raStats;
+    
+
+
+
+
+
+
     }
 }
