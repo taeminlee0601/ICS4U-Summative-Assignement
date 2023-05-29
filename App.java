@@ -12,13 +12,40 @@ public class App
 
         stats odinStat = new stats(900,80,70,50);
         stats lokiStat = new stats(800, 90, 80,60);
+<<<<<<< HEAD
         stats thorStat = new stats(850,100,85,40);
+=======
+        stats thorStat = new stats(850,100,85,40); 
+>>>>>>> 6280b015ee507871f1a522a3f1e8ee929c5a0121
 
         stats anubisStat = new stats (750,130,95,80);
         stats raStat = new stats (650,120,105,70);
         stats horusStat = new stats (700,115,100,85);
 
+<<<<<<< HEAD
         movesets yogMove1= new movesets("Eldritch Grasp",150,80);
         movesets yogMove2 = new movesets("Unfathomable Presence",200,40);
+=======
+        stats zeusStat = new stats (900,90,115,100);
+        stats posidienStat = new stats (1000,85,95,95);
+        stats hadesStat = new stats (850,100,120,90);
+
+        movesets anubuisMovesets = new movesets ("Soul Drain",90);
+        movesets anu
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+>>>>>>> 6280b015ee507871f1a522a3f1e8ee929c5a0121
     }
 }
