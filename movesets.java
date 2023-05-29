@@ -2,13 +2,19 @@ public class movesets
 {
     private String moveName;
     private int power;
-    private int accurary;
+    private int accuracy;
 
-    public movesets (String moveName, int power, int accurary)
+    public movesets (String moveName, int power, int accuracy)
     {
         this.moveName=moveName;
         this.power=power;
-        this.accurary=accurary;
+        this.accuracy=accuracy;
+    }
+
+    public movesets(String moveName, int accuracy)
+    {
+        this.moveName=moveName;
+        this.accuracy=accuracy;
     }
 
     public String getMove()
@@ -23,7 +29,7 @@ public class movesets
 
     public int getAccuracy()
     {
-        return accurary;
+        return accuracy;
     }
 
 }

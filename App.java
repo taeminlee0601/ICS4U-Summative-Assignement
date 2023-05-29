@@ -22,6 +22,20 @@ public class App
         stats posidienStat = new stats (1000,85,95,95);
         stats hadesStat = new stats (850,100,120,90);
 
+        movesets anubuisMovesets = new movesets ("Soul Drain",90);
+        movesets anu
+
+
+
+
+
+
+
+
+
+
+
+
 
         
     }
