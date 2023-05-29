@@ -8,9 +8,10 @@ public class App
 
         stats rickStat = new stats(750,60,90,100);
         stats derpStat = new stats(650,100,110,80);
-        stats godzillaStat = new stats(950, 100, 70, 130);
+        stats godzillaStat = new stats(950, 100, 100, 130);
 
-        stats odinStat = new stats(900,80,70,90);
-        
+        stats odinStat = new stats(900,80,70,50);
+        stats lokiStat = new stats(800, 90, 80,60);
+        stats thorStat = new stats(850,100,85,40); 
     }
 }
