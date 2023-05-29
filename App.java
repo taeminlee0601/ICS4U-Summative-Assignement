@@ -10,6 +10,19 @@ public class App
         stats derpStat = new stats(650,100,110,80);
         stats godzillaStat = new stats(950, 100, 70, 130);
 
-        stats odinStat = new stats();
+        stats odinStat = new stats(900,80,70,50);
+        stats lokiStat = new stats(800, 90, 80,60);
+        stats thorStat = new stats(850,100,85,40); 
+
+        stats anubisStat = new stats (750,130,95,80);
+        stats raStat = new stats (650,120,105,70);
+        stats horusStat = new stats (700,115,100,85);
+
+        stats zeusStat = new stats (900,90,115,100);
+        stats posidienStat = new stats (1000,85,95,95);
+        stats hadesStat = new stats (850,100,120,90);
+
+
+        
     }
 }
