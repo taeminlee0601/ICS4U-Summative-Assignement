@@ -5,6 +5,8 @@ public class stats
     private int speed;
     private int defense;
 
+
+
     public stats(int hp, int attack, int speed, int defense)
     {
         this.hp=hp;
