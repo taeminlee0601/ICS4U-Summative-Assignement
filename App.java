@@ -12,6 +12,13 @@ public class App
 
         stats odinStat = new stats(900,80,70,50);
         stats lokiStat = new stats(800, 90, 80,60);
-        stats thorStat = new stats(850,100,85,40); 
+        stats thorStat = new stats(850,100,85,40);
+
+        stats anubisStat = new stats (750,130,95,80);
+        stats raStat = new stats (650,120,105,70);
+        stats horusStat = new stats (700,115,100,85);
+
+        movesets yogMove1= new movesets("Eldritch Grasp",150,80);
+        movesets yogMove2 = new movesets("Unfathomable Presence",200,40);
     }
 }
