@@ -18,6 +18,10 @@ public class App
         stats raStat = new stats (650,120,105,70);
         stats horusStat = new stats (700,115,100,85);
 
+        stats zeusStat = new stats (900,90,115,100);
+        stats posidienStat = new stats (1000,85,95,95);
+        stats hadesStat = new stats (850,100,120,90);
+
         movesets yogMove1= new movesets("Eldritch Grasp",150,80);
         movesets yogMove2 = new movesets("Unfathomable Presence",200,40);
         movesets yogMove3 = new movesets("Chaos Rift",120,100);
@@ -66,6 +70,17 @@ public class App
         movesets horusMove2 = new movesets("Divine Healing");
         movesets horusMove3 = new movesets("Pharaoh's Judgement",200,80);
 
+        movesets zeusMove1 = new movesets("ThunderBolt",75,100);
+        movesets zeusMove2 = new movesets("ThunderStorm",90,90);
+        movesets zeusMove3 = new movesets("Typhoon",80,90);
 
+        movesets poseidonMove1 = new movesets("Flood",110,60);
+        movesets poseidonMove2 = new movesets("Regenerate");
+        movesets poseidonMove3 = new movesets("Trident Throw",70,100);
+
+
+        movesets hadesMove1 = new movesets("Invisinility");
+        movesets hadesMove2 = new movesets("Soul Absorb",50,100);
+        movesets hadesMove3 = new movesets("Reckless Attack",120,80);
     }
 }
