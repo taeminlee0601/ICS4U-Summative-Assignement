@@ -16,6 +16,11 @@ public class movesets
         this.moveName=moveName;
         this.accuracy=accuracy;
     }
+    
+    public movesets(String moveName)
+    {
+        this.moveName=moveName;
+    }
 
     public String getMove()
     {
