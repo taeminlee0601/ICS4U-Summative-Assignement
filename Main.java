@@ -1,3 +1,6 @@
 public class Main {
-    GameFrame window = new GameFrame();
+    public static void main(String[]args) {
+        GameFrame window = new GameFrame();
+        // Testing
+    }
 }
