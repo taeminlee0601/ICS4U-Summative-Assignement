@@ -1,20 +1,25 @@
-public class movesets 
+public class move 
 {
     private String moveName;
     private int power;
     private int accuracy;
 
-    public movesets (String moveName, int power, int accuracy)
+    public move (String moveName, int power, int accuracy)
     {
         this.moveName=moveName;
         this.power=power;
         this.accuracy=accuracy;
     }
 
-    public movesets(String moveName, int accuracy)
+    public move(String moveName, int accuracy)
     {
         this.moveName=moveName;
         this.accuracy=accuracy;
+    }
+    
+    public move(String moveName)
+    {
+        this.moveName=moveName;
     }
 
     public movesets(String moveName)

@@ -5,7 +5,7 @@ public class stats
     private int speed;
     private int defense;
 
-
+//constructors
 
     public stats(int hp, int attack, int speed, int defense)
     {

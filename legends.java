@@ -1,15 +1,16 @@
+import java.util.ArrayList;
 public class legends
 {
     private String name;
     private String description;
-    private movesets move;
+    private ArrayList<move> movesets;
     private stats statistic;
     
-    public legends(String name, String description, movesets move, stats statistic)
+    public legends(String name, String description, ArrayList<move> movesets, stats statistic)
     {
         this.name=name;
         this.description=description;
-        this.move=move;
+        this.movesets=movesets;
         this.statistic=statistic;
     }
 
@@ -21,6 +22,15 @@ public class legends
     public String description()
     {
         return description;
+    }
+
+    public static ArrayList<move> addMoveToMoveset(move move1, move move2, move move3)
+    {
+        ArrayList arr = new ArrayList();
+        arr.add(move1);
+        arr.add(move2);
+        arr.add(move3);
+        return arr;
     }
 
 
