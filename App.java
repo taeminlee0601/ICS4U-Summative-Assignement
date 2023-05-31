@@ -74,14 +74,11 @@ public class App
         move thorMove1 = new move("Mjolnir's Strike",90,100);
         move thorMove2 = new move("Lighting bolt",110,80);
         move thorMove3 = new move("Call of Lighting");
-
         ArrayList<move> thorMoveset = legends.addMoveToMoveset(thorMove1, thorMove2, thorMove3);
         
         move anubisMove1 = new move("Soul Drain",100,70);
         move anubisMove2 = new move("Pharaoh's Tomb",70,90);
         move anubisMove3 = new move("Underworld Summon");
-
-        ArrayList<move> anubisMoveset = legends.addMoveToMoveset(anubisMove1, anubisMove2, anubisMove3);
 
         move raMove1 = new move("Flash");
         move raMove2 = new move("Lightspeed");
