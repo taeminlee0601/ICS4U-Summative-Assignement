@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 public class App
 {
     public static void main(String[]args)
@@ -22,65 +23,73 @@ public class App
         stats posidienStat = new stats (1000,85,95,95);
         stats hadesStat = new stats (850,100,120,90);
 
-        movesets yogMove1= new movesets("Eldritch Grasp",150,80);
-        movesets yogMove2 = new movesets("Unfathomable Presence",200,40);
-        movesets yogMove3 = new movesets("Chaos Rift",120,100);
+        move yogMove1= new move("Eldritch Grasp",150,80);
+        move yogMove2 = new move("Unfathomable Presence",180,60);
+        move yogMove3 = new move("Chaos Rift",120,100);
 
-        movesets cthulhuMove1 = new movesets("Abyssal Awakening", 250, 30);
-        movesets cthulhuMove2 = new movesets("Call of the Deep");
-        movesets cthulhuMove3 = new movesets("R’lyehian Resurgence");
+        ArrayList<move> yogMoveset = legends.addMoveToMoveset(yogMove1,yogMove2, yogMove3);
 
-        movesets azathothMove1 = new movesets("Nihilistic Pulse",280,10);
-        movesets azathothMove2 = new movesets("Slumbering Malevolence",150, 75);
-        movesets azathothMove3 = new movesets("h' zhro geb",1);
-
-        movesets rickMove1 = new movesets("Rickroll Surprise");
-        movesets rickMove2 = new movesets("Rick’s Redemption");
-        movesets rickMove3 = new movesets("Melodic Encore");
-
-        movesets derpMove1 = new movesets("Derpy Pouce",100,100);
-        movesets derpMove2 = new movesets("Derpocalypse ",100);
-        movesets derpMove3 = new movesets("Whimsical Charm");
+        move cthulhuMove1 = new move("Abyssal Awakening", 130, 100);
+        move cthulhuMove2 = new move("Call of the Deep");
+        move cthulhuMove3 = new move("R’lyehian Resurgence");
         
-        movesets godzillaMove1 = new movesets("Atomic Breath",140,80);
-        movesets godzillaMove2 = new movesets("Nuclear Regeneration");
-        movesets godzillaMove3 = new movesets("Vengeful Retaliation");
+        ArrayList<move> cthMoveset = legends.addMoveToMoveset(cthulhuMove1,cthulhuMove2, cthulhuMove3);
 
-        movesets odinMove1 = new movesets("Hugin and Munin");
-        movesets odinMove2 = new movesets("Allfather Strike",130,80);
-        movesets odinMove3 = new movesets("Insight");
+        move azathothMove1 = new move("Nihilistic Pulse",260,20);
+        move azathothMove2 = new move("Slumbering Malevolence",140, 70);
+        move azathothMove3 = new move("h' zhro geb",1);
 
-        movesets lokiMove1 = new movesets("Shape Shift");
-        movesets lokiMove2 = new movesets("Illusionary Strike",120,90);
-        movesets lokiMove3 = new movesets("Mirror Image");
+        ArrayList<move> azaMoveset = legends.addMoveToMoveset(azathothMove1,azathothMove2, azathothMove3);
 
-        movesets thorMove1 = new movesets("Mjolnir's Strike",90,100);
-        movesets thorMove2 = new movesets("Lighting bolt",110,80);
-        movesets thorMove3 = new movesets("Call of Lighting");
+        move rickMove1 = new move("Rickroll Surprise",90,100);
+        move rickMove2 = new move("Rick’s Redemption");
+        move rickMove3 = new move("Melodic Encore");
 
-        movesets anubisMove1 = new movesets("Soul Drain",70,90);
-        movesets anubisMove2 = new movesets("Pharaoh's Tomb",60,100);
-        movesets anubisMove3 = new movesets("Underworld Summon");
+        move derpMove1 = new move("Derpy Pouce",90,100);
+        move derpMove2 = new move("Derpocalypse ",100);
+        move derpMove3 = new move("Whimsical Charm");
+        
+        move godzillaMove1 = new move("Atomic Breath",100,90);
+        move godzillaMove2 = new move("Nuclear Regeneration");
+        move godzillaMove3 = new move("Vengeful Retaliation");
 
-        movesets raMove1 = new movesets("Flash");
-        movesets raMove2 = new movesets("Lightspeed");
-        movesets raMove3 = new movesets("Sunshine",145,80);
+        move odinMove1 = new move("Hugin and Munin");
+        move odinMove2 = new move("Allfather Strike",120,80);
+        move odinMove3 = new move("Insight");
 
-        movesets horusMove1 = new movesets("Falcon Strike",75,100);
-        movesets horusMove2 = new movesets("Divine Healing");
-        movesets horusMove3 = new movesets("Pharaoh's Judgement",200,80);
+        move lokiMove1 = new move("Shape Shift");
+        move lokiMove2 = new move("Illusionary Strike",100,90);
+        move lokiMove3 = new move("Mirror Image");
 
-        movesets zeusMove1 = new movesets("ThunderBolt",75,100);
-        movesets zeusMove2 = new movesets("ThunderStorm",90,90);
-        movesets zeusMove3 = new movesets("Typhoon",80,90);
+        move thorMove1 = new move("Mjolnir's Strike",90,100);
+        move thorMove2 = new move("Lighting bolt",110,80);
+        move thorMove3 = new move("Call of Lighting");
 
-        movesets poseidonMove1 = new movesets("Flood",110,60);
-        movesets poseidonMove2 = new movesets("Regenerate");
-        movesets poseidonMove3 = new movesets("Trident Throw",70,100);
+        move anubisMove1 = new move("Soul Drain",100,70);
+        move anubisMove2 = new move("Pharaoh's Tomb",70,90);
+        move anubisMove3 = new move("Underworld Summon");
+
+        move raMove1 = new move("Flash");
+        move raMove2 = new move("Lightspeed");
+        move raMove3 = new move("Sunshine",160,70);
+
+        move horusMove1 = new move("Falcon Strike",80,100);
+        move horusMove2 = new move("Divine Healing");
+        move horusMove3 = new move("Pharaoh's Judgement",200,80);
+
+        move zeusMove1 = new move("ThunderBolt",80,100);
+        move zeusMove2 = new move("ThunderStorm",140,70);
+        move zeusMove3 = new move("Typhoon",100,90);
+
+        move poseidonMove1 = new move("Flood",100,80);
+        move poseidonMove2 = new move("Regenerate");
+        move poseidonMove3 = new move("Trident Throw",70,100);
 
 
-        movesets hadesMove1 = new movesets("Invisinility");
-        movesets hadesMove2 = new movesets("Soul Absorb",50,100);
-        movesets hadesMove3 = new movesets("Reckless Attack",120,80);
-    }
+        move hadesMove1 = new move("Invisinility");
+        move hadesMove2 = new move("Soul Absorb",80,100);
+        move hadesMove3 = new move("Reckless Attack",170,50);
+        
+        
+    }   
 }
