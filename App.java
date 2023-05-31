@@ -69,27 +69,37 @@ public class App
         move anubisMove2 = new move("Pharaoh's Tomb",70,90);
         move anubisMove3 = new move("Underworld Summon");
 
+        Arraylist<move> anubisMoveset = legends.addMoveToMoveset(anubisMove1, anubisMove2, anubisMove3);
+
         move raMove1 = new move("Flash");
         move raMove2 = new move("Lightspeed");
         move raMove3 = new move("Sunshine",160,70);
+
+        ArrayList<move> raMoveset = legends.addMoveToMoveset(raMove1, raMove2, raMove3);
 
         move horusMove1 = new move("Falcon Strike",80,100);
         move horusMove2 = new move("Divine Healing");
         move horusMove3 = new move("Pharaoh's Judgement",200,80);
 
+        ArrayList<move> horusMoveset = legends.addMoveToMoveset(horusMove1, horusMove2, horusMove3);
+
         move zeusMove1 = new move("ThunderBolt",80,100);
         move zeusMove2 = new move("ThunderStorm",140,70);
         move zeusMove3 = new move("Typhoon",100,90);
+
+        ArrayList<move> zeusMoveset = legends.addMoveToMoveset(zeusMove1, zeusMove2, zeusMove3);
 
         move poseidonMove1 = new move("Flood",100,80);
         move poseidonMove2 = new move("Regenerate");
         move poseidonMove3 = new move("Trident Throw",70,100);
 
+        ArrayList<move> poseidonMoveset = legends.addMoveToMoveset(poseidonMove1, poseidonMove2, poseidonMove3);
 
         move hadesMove1 = new move("Invisinility");
         move hadesMove2 = new move("Soul Absorb",80,100);
         move hadesMove3 = new move("Reckless Attack",170,50);
         
+        ArrayList<move> hadesMoveset = legends.addMoveToMoveset(hadesMove1, hadesMove2, hadesMove3);
         
     }   
 }

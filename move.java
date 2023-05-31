@@ -22,11 +22,6 @@ public class move
         this.moveName=moveName;
     }
 
-    public movesets(String moveName)
-    {
-        this.moveName=moveName;
-    }
-
     public String getMove()
     {
         return moveName;
