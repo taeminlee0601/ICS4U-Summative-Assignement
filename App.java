@@ -20,7 +20,7 @@ public class App
         stats horusStat = new stats (700,115,100,85);
 
         stats zeusStat = new stats (900,90,115,100);
-        stats posidienStat = new stats (1000,85,95,95);
+        stats posidionStat = new stats (1000,85,95,95);
         stats hadesStat = new stats (850,100,120,90);
 
         move yogMove1= new move("Eldritch Grasp",150,80);
@@ -80,6 +80,7 @@ public class App
         move anubisMove2 = new move("Pharaoh's Tomb",70,90);
         move anubisMove3 = new move("Underworld Summon");
 
+        ArrayList<move> anubisMoveset = legends.addMoveToMoveset(anubisMove1, anubisMove2, anubisMove3);
         move raMove1 = new move("Flash");
         move raMove2 = new move("Lightspeed");
         move raMove3 = new move("Sunshine",160,70);
@@ -110,5 +111,66 @@ public class App
         
         ArrayList<move> hadesMoveset = legends.addMoveToMoveset(hadesMove1, hadesMove2, hadesMove3);
         
+        ArrayList<legends> characterList = new ArrayList<legends>(15);
+
+        legends yog = new legends("Yog-Sothoth","blah",yogMoveset,yogStat);
+
+        characterList.add(yog);
+
+        legends chthulhu = new legends("Cthulhu","blah",cthMoveset,cthulhuStat);
+
+        characterList.add(chthulhu);
+
+        legends azathoth = new legends("Azathoth","blah",azaMoveset,azathothStat);
+
+        characterList.add(azathoth);
+
+        legends rick = new legends("Rick Asley","blah",rickMoveset,rickStat);
+
+        characterList.add(rick);
+
+        legends cat = new legends("Derp Cat","blah",derpMoveset,derpStat);
+
+        characterList.add(cat);
+
+        legends godzilla = new legends("Godzilla","blah",godzillaMoveset,godzillaStat);
+
+        characterList.add(godzilla);
+
+        legends odin = new legends("Odin","blah",odinMoveset,odinStat);
+
+        characterList.add(odin);
+
+        legends loki = new legends("Loki","blah",lokiMoveset,lokiStat);
+
+        characterList.add(loki);
+
+        legends thor = new legends("Thor","blah",thorMoveset,thorStat);
+
+        characterList.add(thor);
+
+        legends anubis = new legends("Anubis","blah",anubisMoveset,anubisStat);
+
+        characterList.add(anubis);
+
+        legends ra = new legends("Ra","blah",raMoveset,raStat);
+
+        characterList.add(ra);
+
+        legends horus = new legends("Horus","blah",horusMoveset,horusStat);
+        
+        characterList.add(horus);
+
+        legends zeus = new legends("Zeus","blah",zeusMoveset,zeusStat);
+
+        characterList.add(zeus);
+
+        legends poseidon = new legends("Poseidon","blah",poseidonMoveset,posidionStat);
+
+        characterList.add(poseidon);
+
+        legends hades = new legends("Hades","blah",hadesMoveset,hadesStat);
+
+        characterList.add(hades);
     }   
 }
