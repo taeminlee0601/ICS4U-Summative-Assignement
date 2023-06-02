@@ -197,22 +197,17 @@ public class App
         
         System.out.print(player2.toString());
 
-        while(true)
-        {
-            System.out.println("Which character do you want to swap? Type no if you do not");
-            System.out.println("You currently have " + player1.getLegends(0).getName() + " as slot 1"+ player1.getLegends(1).getName() + " as slot 2" + player1.getLegends(2).getName() + " as slot 3");
-            String text = input.nextLine();
-            if(text.equals("no"))
-            {
-                break;
-            }
-            if(text.equals("slot one"))
-            {
-                
-            }
-
-        }
+        
         
 
-    }   
+    }
+
+        public legends checkSwap()
+        {
+            String legend = input.nextLine();
+            if(legend.equals("yog"))
+            {
+                return yog;
+            }
+        }
 }
