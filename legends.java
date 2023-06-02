@@ -5,13 +5,15 @@ public class legends
     private String description;
     private ArrayList<move> movesets;
     private stats statistic;
+    private String type;
     
-    public legends(String name, String description, ArrayList<move> movesets, stats statistic)
+    public legends(String name, String description, ArrayList<move> movesets, stats statistic,String type)
     {
         this.name=name;
         this.description=description;
         this.movesets=movesets;
         this.statistic=statistic;
+        this.type=type;
     }
 
     public String getName()
@@ -32,6 +34,15 @@ public class legends
         arr.add(move3);
         return arr;
     }
+
+    public String getType()
+    {
+
+        return type;
+
+    }
+
+
 
 
 }
