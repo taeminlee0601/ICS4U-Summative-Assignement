@@ -13,7 +13,7 @@ public class PlayButtonActionListener implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         startPanel.setVisible(false);
-        System.out.println("test");
+        System.out.println("Showing CharacterChoosePanel");
     }
     
 }

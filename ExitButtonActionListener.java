@@ -7,6 +7,7 @@ public class ExitButtonActionListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        System.out.println("Exiting");
         System.exit(0);
     }
     
