@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 public class App
 {
     public static void main(String[]args)
@@ -172,5 +173,46 @@ public class App
         legends hades = new legends("Hades","blah",hadesMoveset,hadesStat);
 
         characterList.add(hades);
+
+        Player player1 = new Player();
+        Player player2 = new Player();
+        Scanner input = new Scanner (System.in);
+
+        
+        player1.setCharacter(0,yog);
+        
+        player1.setCharacter(1,hades);
+       
+        player1.setCharacter(2,horus);
+
+        
+        System.out.print(player1.toString());
+        
+        player1.setCharacter(0,ra);
+        
+        player1.setCharacter(1,zeus);
+       
+        player1.setCharacter(2,azathoth);
+
+        
+        System.out.print(player2.toString());
+
+        while(true)
+        {
+            System.out.println("Which character do you want to swap? Type no if you do not");
+            System.out.println("You currently have " + player1.getLegends(0).getName() + " as slot 1"+ player1.getLegends(1).getName() + " as slot 2" + player1.getLegends(2).getName() + " as slot 3");
+            String text = input.nextLine();
+            if(text.equals("no"))
+            {
+                break;
+            }
+            if(text.equals("slot one"))
+            {
+                
+            }
+
+        }
+        
+
     }   
 }
