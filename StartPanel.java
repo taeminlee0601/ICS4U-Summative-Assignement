@@ -1,51 +1,31 @@
-// Import correct libraries/modules
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
+import java.awt.image.BufferedImage;
 
-/*
- * This class will create the start screen of the game. This is the GUI component.
- */
-
-// Extend the JPanel class
-public class StartPanel extends JPanel {
-    // Create Instance Variables
-    // Create a JButton for the play button
+public class StartPanel extends ParentPanel {
     private JButton playButton = new JButton();
-    // Create a JButton for the exit button
     private JButton exitButton = new JButton();
-    // Create a Buffered Image for the background image (to rescale)
-    private BufferedImage bufferedBackground;
-    // Create a Image Object to draw the image on the screen
-    private Image background;
-    private Font customFont;
     private JLabel title = new JLabel();
 
     public StartPanel() {
+        
+    }
+
+    public StartPanel(File backgroundFile, File fontFile) {
+        super(backgroundFile, fontFile);
+        createPanel();
+    }
+
+    public void createPanel() {
         setVisible(true);
         setSize(900,500);
         setLayout(null);
 
-        try {
-            bufferedBackground = ImageIO.read(new File("assets/StartMenuBackground.jpg"));
-            background = bufferedBackground.getScaledInstance(900, 500, Image.SCALE_DEFAULT);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-            customFont = Font.createFont(Font.TRUETYPE_FONT, new File("assets/BreatheFireIii-PKLOB.ttf")).deriveFont(30f);
-            ge.registerFont(customFont);
-        } catch (IOException e) {
-                //Handle exception
-            e.printStackTrace();
-        } catch (FontFormatException e) {
-            e.printStackTrace();
-        }
+        setBackground();
+        createFont();
 
         playButton.setFont(customFont);
         exitButton.setFont(customFont);
@@ -75,7 +55,6 @@ public class StartPanel extends JPanel {
         add(playButton);
         add(exitButton);
         add(title);
-
     }
 
     @Override
@@ -86,4 +65,5 @@ public class StartPanel extends JPanel {
 
         playButton.setFont(customFont);
     }
+    
 }
