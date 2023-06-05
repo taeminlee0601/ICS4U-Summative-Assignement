@@ -44,7 +44,7 @@ public class StartPanel extends ParentPanel {
         exitButton.setBounds(getWidth()/2 + 250/2, getHeight()/2 + 50, 100, 100);
         exitButton.setForeground(Color.WHITE);
 
-        playButton.addActionListener(new PlayButtonActionListener(this));
+        playButton.addActionListener(new PlayButtonActionListener(this, frame));
         exitButton.addActionListener(new ExitButtonActionListener());
 
         title.setText("Legend Battle Simulator");
