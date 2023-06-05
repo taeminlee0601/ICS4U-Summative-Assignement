@@ -11,6 +11,8 @@ public class ParentPanel extends JPanel {
     protected File backgroundFile;
     protected File fontFile;
     protected Font customFont;
+    protected ParentPanel nextPanel;
+    protected GameFrame frame;
     
     public ParentPanel() {
         
@@ -49,5 +51,13 @@ public class ParentPanel extends JPanel {
 
     public void setFontFile(File fontFile) {
         this.fontFile = fontFile;
+    }
+
+    public void setNextPanel(ParentPanel panel) {
+        this.nextPanel = panel;
+    }
+
+    public void setFrame(GameFrame frame) {
+        this.frame = frame;
     }
 }

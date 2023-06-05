@@ -8,8 +8,9 @@ public class GameFrame extends JFrame {
     public GameFrame() {
         startPanel.setBackgroundFile(new File("assets/StartMenuBackground.jpg"));
         startPanel.setFontFile(new File("assets/BreatheFireIii-PKLOB.ttf"));
+        startPanel.setFrame(this);
         startPanel.createPanel();
-
+        
         getContentPane().add(startPanel);
 
         setSize(900,500);
