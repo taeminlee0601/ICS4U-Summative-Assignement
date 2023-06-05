@@ -1,6 +1,19 @@
 public class DamageCalc {
     
-    if legends.type = "Olympus god"  
+   public static int DamageCalc (String AttackerPower, int AttackerAttack, int DefenderDefense){
+
+    double damage = (AttackerPower * AttackerAttack / DefenderDefense)
+    
+    
+
+
+
+
+   }
+    
+
+
+
 
 
     
