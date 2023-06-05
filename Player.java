@@ -1,10 +1,10 @@
 public class Player {
     
-    private static legends legend1;
-    private static legends legend2;
-    private static legends legend3;
+    private legends legend1;
+    private legends legend2;
+    private legends legend3;
 
-   static legends[] character = {legend1,legend2,legend3};
+   legends[] character = {legend1,legend2,legend3};
     
     public Player()
     {
@@ -18,7 +18,7 @@ public class Player {
         return character[num];
     }
 
-    public static void setCharacter(int num, legends legend)
+    public void setCharacter(int num, legends legend)
     {
         character[num]=legend;
     }

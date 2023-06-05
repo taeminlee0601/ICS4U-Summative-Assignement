@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 public class App
 {
+
     public static void main(String[]args)
     {
         stats yogStat = new stats(900,100,50,150);
@@ -176,38 +177,114 @@ public class App
 
         Player player1 = new Player();
         Player player2 = new Player();
-        Scanner input = new Scanner (System.in);
 
+        System.out.println("Player 1 choose legends: ");
+        System.out.println("Choose your first legend:");
+        player1.setCharacter(0,checkSwap(yog,chthulhu,azathoth,rick,cat,godzilla,odin,loki,thor,anubis,ra,horus,zeus,poseidon,hades));
         
-        player1.setCharacter(0,yog);
-        
-        player1.setCharacter(1,hades);
-       
-        player1.setCharacter(2,horus);
+        System.out.println("Choose your second legend:");
+        player1.setCharacter(1,checkSwap(yog,chthulhu,azathoth,rick,cat,godzilla,odin,loki,thor,anubis,ra,horus,zeus,poseidon,hades));
+        System.out.println("Choose your third legend:");
+        player1.setCharacter(2,checkSwap(yog,chthulhu,azathoth,rick,cat,godzilla,odin,loki,thor,anubis,ra,horus,zeus,poseidon,hades));
 
         
         System.out.print(player1.toString());
-        
-        player1.setCharacter(0,ra);
-        
-        player1.setCharacter(1,zeus);
-       
-        player1.setCharacter(2,azathoth);
+
+        System.out.println();
+
+        System.out.println("Player 2 choose legends: ");
+        System.out.println("Choose your first legend:");
+        player2.setCharacter(0,checkSwap(yog,chthulhu,azathoth,rick,cat,godzilla,odin,loki,thor,anubis,ra,horus,zeus,poseidon,hades));
+        System.out.println("Choose your second legend:");
+        player2.setCharacter(1,checkSwap(yog,chthulhu,azathoth,rick,cat,godzilla,odin,loki,thor,anubis,ra,horus,zeus,poseidon,hades));
+        System.out.println("Choose your third legend:");
+        player2.setCharacter(2,checkSwap(yog,chthulhu,azathoth,rick,cat,godzilla,odin,loki,thor,anubis,ra,horus,zeus,poseidon,hades));
 
         
         System.out.print(player2.toString());
 
-        
-        
-
     }
 
-        public legends checkSwap()
+    public static legends checkSwap(legends yog, legends chthulhu, legends azathoth, legends rick, legends cat, legends godzilla, legends odin, legends loki, legends thor, legends anubis, legends ra, legends horus, legends zeus, legends poseidon, legends hades)
+    {
+        Scanner input = new Scanner (System.in);
+        String legend = input.next();
+        if(legend.equals("yog"))
         {
-            String legend = input.nextLine();
-            if(legend.equals("yog"))
-            {
-                return yog;
-            }
+            
+            return yog;
         }
+        if(legend.equals("chthulhu"))
+        {
+            
+            return chthulhu;
+        }
+        if(legend.equals("azathoth"))
+        {
+            
+            return azathoth;
+        }
+        if(legend.equals("rick"))
+        {
+            
+            return rick;
+        }
+        if(legend.equals("cat"))
+        {
+            
+            return cat;
+        }
+        if(legend.equals("godzilla"))
+        {
+            
+            return godzilla;
+        }
+        if(legend.equals("odin"))
+        {
+            
+            return odin;
+        }
+        if(legend.equals("loki"))
+        {
+            
+            return loki;
+        }
+        if(legend.equals("thor"))
+        {
+            
+            return thor;
+        }
+        if(legend.equals("anubis"))
+        {
+            
+            return anubis;
+        }
+        if(legend.equals("ra"))
+        {
+            
+            return ra;
+        }
+        if(legend.equals("horus"))
+        {
+            
+            return horus;
+        }
+        if(legend.equals("zeus"))
+        {
+            
+            return zeus;
+        }
+        if(legend.equals("poseidon"))
+        {
+            
+            return poseidon;
+        }
+        if(legend.equals("hades"))
+        {
+            
+            return hades;
+        }
+        
+        return null;
+    }
 }
