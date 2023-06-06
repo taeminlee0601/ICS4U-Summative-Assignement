@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 public class App
 {
     public static void main(String[]args)
@@ -20,7 +21,7 @@ public class App
         stats horusStat = new stats (700,115,100,85);
 
         stats zeusStat = new stats (900,90,115,100);
-        stats posidienStat = new stats (1000,85,95,95);
+        stats posidionStat = new stats (1000,85,95,95);
         stats hadesStat = new stats (850,100,120,90);
 
         move yogMove1= new move("Eldritch Grasp",150,80);
@@ -80,6 +81,7 @@ public class App
         move anubisMove2 = new move("Pharaoh's Tomb",70,90);
         move anubisMove3 = new move("Underworld Summon");
 
+        ArrayList<move> anubisMoveset = legends.addMoveToMoveset(anubisMove1, anubisMove2, anubisMove3);
         move raMove1 = new move("Flash");
         move raMove2 = new move("Lightspeed");
         move raMove3 = new move("Sunshine",160,70);
@@ -110,5 +112,102 @@ public class App
         
         ArrayList<move> hadesMoveset = legends.addMoveToMoveset(hadesMove1, hadesMove2, hadesMove3);
         
-    }   
+        ArrayList<legends> characterList = new ArrayList<legends>(15);
+
+        legends yog = new legends("Yog-Sothoth","Cosmic entitiy who trasends space and time",yogMoveset,yogStat,"Outer gods");
+
+        characterList.add(yog);
+
+        legends chthulhu = new legends("Cthulhu","Colossal ancient god lying dormant in the sea waiting for someone to wake him",cthMoveset,cthulhuStat,"Outer Gods");
+
+        characterList.add(chthulhu);
+
+        legends azathoth = new legends("Azathoth","Chaotic deity know as the blind god existing at the center of the cosmos",azaMoveset,azathothStat,"Outer Gods");
+
+        characterList.add(azathoth);
+
+        legends rick = new legends("Rick Asley","Never gonna give you up never gonna let you down never gonna run around and desert you",rickMoveset,rickStat,"Meme gods");
+
+        characterList.add(rick);
+
+        legends cat = new legends("Derp Cat","nyanynaynaynaynaynayna",derpMoveset,derpStat,"Meme gods");
+
+        characterList.add(cat);
+
+        legends godzilla = new legends("Godzilla","King of the monster",godzillaMoveset,godzillaStat,"Meme god");
+
+        characterList.add(godzilla);
+
+        legends odin = new legends("Odin","God of wisdom war and death the Allfather",odinMoveset,odinStat,"Norse god");
+
+        characterList.add(odin);
+
+        legends loki = new legends("Loki","God of mischief who knows what he might do?",lokiMoveset,lokiStat,"Norse god");
+
+        characterList.add(loki);
+
+        legends thor = new legends("Thor","God of thunder and also a powerful warrior",thorMoveset,thorStat,"Norse god");
+
+        characterList.add(thor);
+
+        legends anubis = new legends("Anubis","God of the after life is your heart lighter then a feather?",anubisMoveset,anubisStat,"Egyptians god");
+
+        characterList.add(anubis);
+
+        legends ra = new legends("Ra","God of the sun and creator of all life supreme leader of the Eygiptian gods",raMoveset,raStat,"Egyptian god");
+
+        characterList.add(ra);
+
+        legends horus = new legends("Horus","God of the sky ruler of the pharaohs",horusMoveset,horusStat,"Egyptian god");
+        
+        characterList.add(horus);
+
+        legends zeus = new legends("Zeus","King of gods and ruler of Olympus",zeusMoveset,zeusStat,"Olympus god");
+
+        characterList.add(zeus);
+
+        legends poseidon = new legends("Poseidon","God of the sea owner of atlantis",poseidonMoveset,posidionStat,"Olympus god");
+
+        characterList.add(poseidon);
+
+        legends hades = new legends("Hades","God of the underworld owner of the domain of the dead",hadesMoveset,hadesStat,"Olympus god");
+
+        characterList.add(hades);
+
+        Player player1 = new Player();
+        Player player2 = new Player();
+        Scanner input = new Scanner (System.in);
+
+        
+        player1.setCharacter(0,yog);
+        
+        player1.setCharacter(1,hades);
+       
+        player1.setCharacter(2,horus);
+
+        
+        System.out.print(player1.toString());
+        
+        player1.setCharacter(0,ra);
+        
+        player1.setCharacter(1,zeus);
+       
+        player1.setCharacter(2,azathoth);
+
+        
+        System.out.print(player2.toString());
+
+        
+        
+
+    }
+
+        public legends checkSwap()
+        {
+            String legend = input.nextLine();
+            if(legend.equals("yog"))
+            {
+                return yog;
+            }
+        }
 }
