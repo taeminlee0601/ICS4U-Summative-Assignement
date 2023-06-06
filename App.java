@@ -113,178 +113,261 @@ public class App
         
         ArrayList<move> hadesMoveset = legends.addMoveToMoveset(hadesMove1, hadesMove2, hadesMove3);
         
-        ArrayList<legends> characterList = new ArrayList<legends>(15);
+        ArrayList<legends> characterList = new ArrayList<legends>();
 
-        legends yog = new legends("Yog-Sothoth","Cosmic entitiy who trasends space and time",yogMoveset,yogStat,"Outer gods");
+        legends yog = new legends("Yog-Sothoth","Cosmic entitiy who trasends space and time",yogMoveset,yogStat,"Outer");
 
         characterList.add(yog);
 
-        legends chthulhu = new legends("Cthulhu","Colossal ancient god lying dormant in the sea waiting for someone to wake him",cthMoveset,cthulhuStat,"Outer Gods");
+        legends chthulhu = new legends("Cthulhu","Colossal ancient god lying dormant in the sea waiting for someone to wake him",cthMoveset,cthulhuStat,"Outer");
 
         characterList.add(chthulhu);
 
-        legends azathoth = new legends("Azathoth","Chaotic deity know as the blind god existing at the center of the cosmos",azaMoveset,azathothStat,"Outer Gods");
+        legends azathoth = new legends("Azathoth","Chaotic deity know as the blind god existing at the center of the cosmos",azaMoveset,azathothStat,"Outer");
 
         characterList.add(azathoth);
 
-        legends rick = new legends("Rick Asley","Never gonna give you up never gonna let you down never gonna run around and desert you",rickMoveset,rickStat,"Meme gods");
+        legends rick = new legends("Rick Asley","Never gonna give you up never gonna let you down never gonna run around and desert you",rickMoveset,rickStat,"Meme");
 
         characterList.add(rick);
 
-        legends cat = new legends("Derp Cat","nyanynaynaynaynaynayna",derpMoveset,derpStat,"Meme gods");
+        legends cat = new legends("Derp Cat","nyanynaynaynaynaynayna",derpMoveset,derpStat,"Meme");
 
         characterList.add(cat);
 
-        legends godzilla = new legends("Godzilla","King of the monster",godzillaMoveset,godzillaStat,"Meme god");
+        legends godzilla = new legends("Godzilla","King of the monster",godzillaMoveset,godzillaStat,"Meme");
 
         characterList.add(godzilla);
 
-        legends odin = new legends("Odin","God of wisdom war and death the Allfather",odinMoveset,odinStat,"Norse god");
+        legends odin = new legends("Odin","God of wisdom war and death the Allfather",odinMoveset,odinStat,"Norse");
 
         characterList.add(odin);
 
-        legends loki = new legends("Loki","God of mischief who knows what he might do?",lokiMoveset,lokiStat,"Norse god");
+        legends loki = new legends("Loki","God of mischief who knows what he might do?",lokiMoveset,lokiStat,"Norse");
 
         characterList.add(loki);
 
-        legends thor = new legends("Thor","God of thunder and also a powerful warrior",thorMoveset,thorStat,"Norse god");
+        legends thor = new legends("Thor","God of thunder and also a powerful warrior",thorMoveset,thorStat,"Norse");
 
         characterList.add(thor);
 
-        legends anubis = new legends("Anubis","God of the after life is your heart lighter then a feather?",anubisMoveset,anubisStat,"Egyptians god");
+        legends anubis = new legends("Anubis","God of the after life is your heart lighter then a feather?",anubisMoveset,anubisStat,"Egyptian");
 
         characterList.add(anubis);
 
-        legends ra = new legends("Ra","God of the sun and creator of all life supreme leader of the Eygiptian gods",raMoveset,raStat,"Egyptian god");
+        legends ra = new legends("Ra","God of the sun and creator of all life supreme leader of the Eygiptian gods",raMoveset,raStat,"Egyptian");
 
         characterList.add(ra);
 
-        legends horus = new legends("Horus","God of the sky ruler of the pharaohs",horusMoveset,horusStat,"Egyptian god");
+        legends horus = new legends("Horus","God of the sky ruler of the pharaohs",horusMoveset,horusStat,"Egyptian");
         
         characterList.add(horus);
 
-        legends zeus = new legends("Zeus","King of gods and ruler of Olympus",zeusMoveset,zeusStat,"Olympus god");
+        legends zeus = new legends("Zeus","King of gods and ruler of Olympus",zeusMoveset,zeusStat,"Olympus");
 
         characterList.add(zeus);
 
-        legends poseidon = new legends("Poseidon","God of the sea owner of atlantis",poseidonMoveset,posidionStat,"Olympus god");
+        legends poseidon = new legends("Poseidon","God of the sea owner of atlantis",poseidonMoveset,posidionStat,"Olympus");
 
         characterList.add(poseidon);
 
-        legends hades = new legends("Hades","God of the underworld owner of the domain of the dead",hadesMoveset,hadesStat,"Olympus god");
+        legends hades = new legends("Hades","God of the underworld owner of the domain of the dead",hadesMoveset,hadesStat,"Olympus");
 
         characterList.add(hades);
 
         Player player1 = new Player();
         Player player2 = new Player();
 
-        System.out.println("Player 1 choose legends: ");
-        System.out.println("Choose your first legend:");
-        player1.setCharacter(0,checkSwap(yog,chthulhu,azathoth,rick,cat,godzilla,odin,loki,thor,anubis,ra,horus,zeus,poseidon,hades));
         
-        System.out.println("Choose your second legend:");
-        player1.setCharacter(1,checkSwap(yog,chthulhu,azathoth,rick,cat,godzilla,odin,loki,thor,anubis,ra,horus,zeus,poseidon,hades));
-        System.out.println("Choose your third legend:");
-        player1.setCharacter(2,checkSwap(yog,chthulhu,azathoth,rick,cat,godzilla,odin,loki,thor,anubis,ra,horus,zeus,poseidon,hades));
 
+        System.out.println("Player 1 choose legends:");
+        showCharacterList(characterList);
+        System.out.println();
+        System.out.println();
+
+        System.out.print("Choose your first legend: ");
+        legends temp = checkSwap(characterList);
+        player1.setCharacter(0,temp);
+        removeAlreadyPickedCharacterList(characterList,temp);
+        showCharacterList(characterList);
+        System.out.println();
+        System.out.println();
+
+        System.out.print("Choose your second legend: ");
+        temp = checkSwap(characterList);
+        player1.setCharacter(1,temp);
+        removeAlreadyPickedCharacterList(characterList,temp);
+        showCharacterList(characterList);
+        System.out.println();
+        System.out.println();
+
+        System.out.print("Choose your third legend: ");
+        temp = checkSwap(characterList);
+        player1.setCharacter(2,temp);
+        removeAlreadyPickedCharacterList(characterList,temp);
+        showCharacterList(characterList);
+        System.out.println();
+        System.out.println();
         
+        System.out.println();
+        System.out.println("These are your three selected legends:");
         System.out.print(player1.toString());
 
         System.out.println();
+        System.out.println();
 
         System.out.println("Player 2 choose legends: ");
-        System.out.println("Choose your first legend:");
-        player2.setCharacter(0,checkSwap(yog,chthulhu,azathoth,rick,cat,godzilla,odin,loki,thor,anubis,ra,horus,zeus,poseidon,hades));
-        System.out.println("Choose your second legend:");
-        player2.setCharacter(1,checkSwap(yog,chthulhu,azathoth,rick,cat,godzilla,odin,loki,thor,anubis,ra,horus,zeus,poseidon,hades));
-        System.out.println("Choose your third legend:");
-        player2.setCharacter(2,checkSwap(yog,chthulhu,azathoth,rick,cat,godzilla,odin,loki,thor,anubis,ra,horus,zeus,poseidon,hades));
+        showCharacterList(characterList);
+        System.out.println();
+        System.out.println();
 
-        
+        System.out.print("Choose your first legend: ");
+        temp = checkSwap(characterList);
+        player2.setCharacter(0,temp);
+        removeAlreadyPickedCharacterList(characterList,temp);
+        showCharacterList(characterList);
+        System.out.println();
+        System.out.println();
+
+        System.out.print("Choose your second legend: ");
+        temp = checkSwap(characterList);
+        player2.setCharacter(1,temp);
+        removeAlreadyPickedCharacterList(characterList,temp);
+        showCharacterList(characterList);
+        System.out.println();
+        System.out.println();
+
+
+        System.out.print("Choose your third legend: ");
+        temp = checkSwap(characterList);
+        player2.setCharacter(2,temp);
+        removeAlreadyPickedCharacterList(characterList,temp);
+        showCharacterList(characterList);
+        System.out.println();
+        System.out.println();
+
+        System.out.println();
+        System.out.println("These are your three selected legends:");
         System.out.print(player2.toString());
 
     }
 
-    public static legends checkSwap(legends yog, legends chthulhu, legends azathoth, legends rick, legends cat, legends godzilla, legends odin, legends loki, legends thor, legends anubis, legends ra, legends horus, legends zeus, legends poseidon, legends hades)
+    public static void showCharacterList(ArrayList<legends> characterList)
     {
-        Scanner input = new Scanner (System.in);
-        String legend = input.next();
-        if(legend.equals("yog"))
+        for(int i = 0 ;i<characterList.size();i++)
         {
-            
-            return yog;
+            System.out.print(characterList.get(i).getName()+" ");
         }
-        if(legend.equals("chthulhu"))
+    }
+
+    public static void removeAlreadyPickedCharacterList(ArrayList<legends> characterList,legends legend)
+    {
+        for(int i = 0 ; i<characterList.size();i++)
         {
-            
-            return chthulhu;
+            if(legend==characterList.get(i))
+            {
+                characterList.remove(i);
+            }
         }
-        if(legend.equals("azathoth"))
+    }
+
+    //Improved Version
+    public static legends checkSwap(ArrayList<legends> characterList)
+    {
+        Scanner input = new Scanner(System.in);
+        String legend = input.nextLine();
+        for(int i =0 ; i<characterList.size();i++)
         {
-            
-            return azathoth;
+            if(legend.equals(characterList.get(i).getName()))
+            {
+                return characterList.get(i);
+            }
         }
-        if(legend.equals("rick"))
-        {
-            
-            return rick;
-        }
-        if(legend.equals("cat"))
-        {
-            
-            return cat;
-        }
-        if(legend.equals("godzilla"))
-        {
-            
-            return godzilla;
-        }
-        if(legend.equals("odin"))
-        {
-            
-            return odin;
-        }
-        if(legend.equals("loki"))
-        {
-            
-            return loki;
-        }
-        if(legend.equals("thor"))
-        {
-            
-            return thor;
-        }
-        if(legend.equals("anubis"))
-        {
-            
-            return anubis;
-        }
-        if(legend.equals("ra"))
-        {
-            
-            return ra;
-        }
-        if(legend.equals("horus"))
-        {
-            
-            return horus;
-        }
-        if(legend.equals("zeus"))
-        {
-            
-            return zeus;
-        }
-        if(legend.equals("poseidon"))
-        {
-            
-            return poseidon;
-        }
-        if(legend.equals("hades"))
-        {
-            
-            return hades;
-        }
-        
         return null;
     }
+
+
+
+    // public static legends checkSwap(legends yog, legends chthulhu, legends azathoth, legends rick, legends cat, legends godzilla, legends odin, legends loki, legends thor, legends anubis, legends ra, legends horus, legends zeus, legends poseidon, legends hades)
+    // {
+    //     Scanner input = new Scanner (System.in);
+    //     String legend = input.nextLine();
+    //     if(legend.equals("Yog-Sothoth"))
+    //     {
+            
+    //         return yog;
+    //     }
+    //     if(legend.equals("Chthulhu"))
+    //     {
+            
+    //         return chthulhu;
+    //     }
+    //     if(legend.equals("Azathoth"))
+    //     {
+            
+    //         return azathoth;
+    //     }
+    //     if(legend.equals("Rick Asley"))
+    //     {
+            
+    //         return rick;
+    //     }
+    //     if(legend.equals("Derp Cat"))
+    //     {
+            
+    //         return cat;
+    //     }
+    //     if(legend.equals("Godzilla"))
+    //     {
+            
+    //         return godzilla;
+    //     }
+    //     if(legend.equals("Odin"))
+    //     {
+            
+    //         return odin;
+    //     }
+    //     if(legend.equals("Loki"))
+    //     {
+            
+    //         return loki;
+    //     }
+    //     if(legend.equals("Thor"))
+    //     {
+            
+    //         return thor;
+    //     }
+    //     if(legend.equals("Anubis"))
+    //     {
+            
+    //         return anubis;
+    //     }
+    //     if(legend.equals("Ra"))
+    //     {
+            
+    //         return ra;
+    //     }
+    //     if(legend.equals("Horus"))
+    //     {
+            
+    //         return horus;
+    //     }
+    //     if(legend.equals("Zeus"))
+    //     {
+            
+    //         return zeus;
+    //     }
+    //     if(legend.equals("Poseidon"))
+    //     {
+            
+    //         return poseidon;
+    //     }
+    //     if(legend.equals("Hades"))
+    //     {
+            
+    //         return hades;
+    //     }
+        
+    //     return null;
+    // }
 }
