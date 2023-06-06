@@ -250,6 +250,8 @@ public class App
         System.out.println("These are your three selected legends:");
         System.out.print(player2.toString());
 
+
+        // System.out.println(calcDamage(player1.getLegends(0).getPower(),player1.getLegends(0).getAttack(),player2.getLegends(0).getDefense(),player1.getLegends(0).getName(),player2.getLegends(0)));
     }
 
     public static void showCharacterList(ArrayList<legends> characterList)

@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 public class stats
 {
     private int hp;
@@ -15,33 +16,49 @@ public class stats
         this.defense=defense;
     }
 
-    public static int calcDamage (int movePower, int attack, int defense,String type1,String type2)
+    public static int calcDamage (Player player1, Player player2,int numLegend,ArrayList<move> movesets,int numMove)
     {
 
-        int damageDone = (movePower * attack / defense);
+        int damageDone = (player1.getLegends(numLegend).getMovesets().* player1.getLegends(num).getAttack() / defense);
         
         if(type1.equals("Outer")&&type2.equals("Olympus"))
         {
-            damageDone*=1.12;
+            damageDone*=1.2;
         }
-
-        if(type1.equals("Meme")&&type2.equals("Egyptian"))
+        else if(type1.equals("Olympus")&&type2.equals("Outer"))
         {
-            damageDone*=1.12;
+            damageDone*=0.8;
         }
-
-        if(type1.equals("Egyptian")&&type2.equals("Outer"))
+        else if(type1.equals("Meme")&&type2.equals("Egyptian"))
         {
-            damageDone*=1.12;
+            damageDone*=1.2;
         }
-
-        if(type1.equals("Olympus")&&type2.equals("Meme"))
+        else if(type1.equals("Egyptian")&&type2.equals("Meme"))
         {
-            damageDone*=1.12;
+            damageDone*=0.8;
+        }
+        else if(type1.equals("Egyptian")&&type2.equals("Outer"))
+        {
+            damageDone*=1.2;
+        }
+        else if(type1.equals("Outer")&&type2.equals("Egyptian"))
+        {
+            damageDone*=0.8;
+        }
+        else if(type1.equals("Olympus")&&type2.equals("Meme"))
+        {
+            damageDone*=1.2;
+        }
+        else if(type1.equals("Meme")&&type2.equals("Olympus"))
+        {
+            damageDone*=0.8;
         }
         
         return damageDone;
     }
+
+
+
 
     public int getHP()
     {

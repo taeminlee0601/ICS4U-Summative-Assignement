@@ -16,6 +16,16 @@ public class legends
         this.type=type;
     }
 
+    public ArrayList<move> getMovesets()
+    {
+        return movesets;
+    }
+
+    public stats getStats()
+    {
+        return statistic;
+    }
+
     public String getName()
     {
         return name;
