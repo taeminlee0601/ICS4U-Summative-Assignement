@@ -1,3 +1,5 @@
+import java.lang.Math;
+
 public class stats
 {
     private int hp;
@@ -42,6 +44,15 @@ public class stats
         
         return damageDone;
     }
+
+    
+
+
+
+
+
+
+
 
     public int getHP()
     {
