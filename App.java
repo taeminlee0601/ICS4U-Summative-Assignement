@@ -178,6 +178,10 @@ public class App
         Player player1 = new Player();
         Player player2 = new Player();
 
+
+
+        
+
         
 
         System.out.println("Player 1 choose legends:");
@@ -284,7 +288,47 @@ public class App
             }
         }
         return null;
+   
+    
     }
+
+    public static attack(ArrayList<move> Moveset)
+    {
+
+        Scanner input = new Scanner(System.in);
+        String Moveset = input.next();
+
+        for(int i = 0 ; i < Moveset.getmoveName;i++)
+        {
+            
+
+
+
+        }
+
+
+    }
+
+
+    System.out.print("Pick a move");
+    Scanner input = new Scanner(System.in);
+    String  
+
+
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
 
 
 
