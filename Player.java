@@ -3,8 +3,7 @@ public class Player {
     private legends legend1;
     private legends legend2;
     private legends legend3;
-
-   legends[] character = {legend1,legend2,legend3};
+    private legends[] character = {legend1,legend2,legend3};
     
     public Player()
     {
@@ -13,9 +12,9 @@ public class Player {
         legend3=null;
     }
 
-    public legends getLegends(int num)
+    public legends[] getCharacter()
     {
-        return character[num];
+        return character;
     }
 
     public void setCharacter(int num, legends legend)
