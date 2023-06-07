@@ -91,6 +91,28 @@ public class legends
 
     }
 
+    public static void showMoveset(ArrayList<move> moveset)
+    {
+        System.out.println("Move 1 name: "+ moveset.get(0).getMoveName());
+        System.out.println("Move 1 power: "+ moveset.get(0).getPower());
+        System.out.println("Move 1 accuracy: "+ moveset.get(0).getAccuracy());
+
+        System.out.println();
+
+        System.out.println("Move 2 name: "+ moveset.get(1).getMoveName());
+        System.out.println("Move 2 power: "+ moveset.get(1).getPower());
+        System.out.println("Move 2 accuracy: "+ moveset.get(1).getAccuracy());
+
+        System.out.println();
+
+        System.out.println("Move 3 name: "+ moveset.get(2).getMoveName());
+        System.out.println("Move 3 power: "+ moveset.get(2).getPower());
+        System.out.println("Move 3 accuracy: "+ moveset.get(2).getAccuracy());
+
+        System.out.println();
+
+    }
+
     public void setImageFile(File imageFile) {
         this.imageFile = imageFile;
     }
