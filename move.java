@@ -1,5 +1,7 @@
+import java.util.ArrayList;
 public class move 
 {
+    
     private String moveName;
     private int power;
     private int accuracy;
@@ -22,7 +24,7 @@ public class move
         this.moveName=moveName;
     }
 
-    public String getMove()
+    public String getMoveName()
     {
         return moveName;
     }
@@ -36,5 +38,16 @@ public class move
     {
         return accuracy;
     }
+
+    public static ArrayList<move> addMoveToMoveset(move move1, move move2, move move3)
+    {
+        ArrayList <move> arr = new ArrayList<move>();
+        arr.add(move1);
+        arr.add(move2);
+        arr.add(move3);
+        return arr;
+    }
+
+
 
 }
