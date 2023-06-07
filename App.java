@@ -184,79 +184,82 @@ public class App
 
         
 
-        // System.out.println("Player 1 choose legends:");
-        // showCharacterList(characterList);
-        // System.out.println();
-        // System.out.println();
+        System.out.println("Player 1 choose legends:");
+        showCharacterList(characterList);
+        System.out.println();
+        System.out.println();
 
-        // System.out.print("Choose your first legend: ");
-        // legends temp = checkSwap(characterList);
-        // player1.setCharacter(0,temp);
-        // removeAlreadyPickedCharacterList(characterList,temp);
-        // showCharacterList(characterList);
-        // System.out.println();
-        // System.out.println();
+        System.out.print("Choose your first legend: ");
+        legends temp = checkSwap(characterList);
+        player1.setCharacter(0,temp);
+        removeAlreadyPickedCharacterList(characterList,temp);
+        showCharacterList(characterList);
+        System.out.println();
+        System.out.println();
 
-        // System.out.print("Choose your second legend: ");
-        // temp = checkSwap(characterList);
-        // player1.setCharacter(1,temp);
-        // removeAlreadyPickedCharacterList(characterList,temp);
-        // showCharacterList(characterList);
-        // System.out.println();
-        // System.out.println();
+        System.out.print("Choose your second legend: ");
+        temp = checkSwap(characterList);
+        player1.setCharacter(1,temp);
+        removeAlreadyPickedCharacterList(characterList,temp);
+        showCharacterList(characterList);
+        System.out.println();
+        System.out.println();
 
-        // System.out.print("Choose your third legend: ");
-        // temp = checkSwap(characterList);
-        // player1.setCharacter(2,temp);
-        // removeAlreadyPickedCharacterList(characterList,temp);
-        // showCharacterList(characterList);
-        // System.out.println();
-        // System.out.println();
+        System.out.print("Choose your third legend: ");
+        temp = checkSwap(characterList);
+        player1.setCharacter(2,temp);
+        removeAlreadyPickedCharacterList(characterList,temp);
+        showCharacterList(characterList);
+        System.out.println();
+        System.out.println();
         
-        // System.out.println();
-        // System.out.println("These are your three selected legends:");
-        // System.out.print(player1.toString());
+        System.out.println();
+        System.out.println("These are your three selected legends:");
+        System.out.print(player1.toString());
 
-        // System.out.println();
-        // System.out.println();
+        System.out.println();
+        System.out.println();
 
-        // System.out.println("Player 2 choose legends: ");
-        // showCharacterList(characterList);
-        // System.out.println();
-        // System.out.println();
+        System.out.println("Player 2 choose legends: ");
+        showCharacterList(characterList);
+        System.out.println();
+        System.out.println();
 
-        // System.out.print("Choose your first legend: ");
-        // temp = checkSwap(characterList);
-        // player2.setCharacter(0,temp);
-        // removeAlreadyPickedCharacterList(characterList,temp);
-        // showCharacterList(characterList);
-        // System.out.println();
-        // System.out.println();
+        System.out.print("Choose your first legend: ");
+        temp = checkSwap(characterList);
+        player2.setCharacter(0,temp);
+        removeAlreadyPickedCharacterList(characterList,temp);
+        showCharacterList(characterList);
+        System.out.println();
+        System.out.println();
 
-        // System.out.print("Choose your second legend: ");
-        // temp = checkSwap(characterList);
-        // player2.setCharacter(1,temp);
-        // removeAlreadyPickedCharacterList(characterList,temp);
-        // showCharacterList(characterList);
-        // System.out.println();
-        // System.out.println();
+        System.out.print("Choose your second legend: ");
+        temp = checkSwap(characterList);
+        player2.setCharacter(1,temp);
+        removeAlreadyPickedCharacterList(characterList,temp);
+        showCharacterList(characterList);
+        System.out.println();
+        System.out.println();
 
 
-        // System.out.print("Choose your third legend: ");
-        // temp = checkSwap(characterList);
-        // player2.setCharacter(2,temp);
-        // removeAlreadyPickedCharacterList(characterList,temp);
-        // showCharacterList(characterList);
-        // System.out.println();
-        // System.out.println();
+        System.out.print("Choose your third legend: ");
+        temp = checkSwap(characterList);
+        player2.setCharacter(2,temp);
+        removeAlreadyPickedCharacterList(characterList,temp);
+        showCharacterList(characterList);
+        System.out.println();
+        System.out.println();
 
-        // System.out.println();
-        // System.out.println("These are your three selected legends:");
-        // System.out.print(player2.toString());
+        System.out.println();
+        System.out.println("These are your three selected legends:");
+        System.out.print(player2.toString());
+        System.out.println();
+        System.out.println();
 
         System.out.println("Zeus health is now: " + zeus.getStats().getHP());
         System.out.println("Azathoth health is now: " + azathoth.getStats().getHP());
         System.out.println("Azathoth attacks Zeus, he does " + legends.calcDamage(0,azathoth,zeus));
+        System.out.println();
         attack(azaMoveset, azathoth, zeus);
         System.out.println("Zeus health is now: " + zeus.getStats().getHP());
 
@@ -285,7 +288,7 @@ public class App
     //Improved Version, added check for invalid input that cause loop until it is correct
     public static legends checkSwap(ArrayList<legends> characterList) {
         Scanner input = new Scanner(System.in);
-        String legend = null;
+        String legend = "";
 
         boolean validInput = false;
         while (!validInput) {
@@ -311,17 +314,33 @@ public class App
         Scanner input = new Scanner(System.in);
         legends.showMoveset(moveset);
         System.out.print("Choose your move: ");
-        String move = input.next();
-
-        for(int i = 0 ; i<moveset.size();i++)
+        String move = "";
+        boolean validInput = false;
+        while(!validInput)
         {
-            if(move.equals(moveset.get(i).getMoveName()))
+            move=input.nextLine();
+
+            for(int i = 0 ; i<moveset.size();i++)
             {
-                int newHP = otherLegend.getStats().getHP()-legends.calcDamage(i, legend,otherLegend);
-                otherLegend.getStats().setHP(newHP);
-                break;
+                if(move.equals(moveset.get(i).getMoveName()))
+                {
+                    validInput=true;
+                    int newHP = otherLegend.getStats().getHP()-legends.calcDamage(i, legend,otherLegend);
+                    otherLegend.getStats().setHP(newHP);
+                    break;
+                }
             }
+
+            if(!validInput)
+            {
+                System.out.print("Invalid input! Please enter a valid move name: ");
+            }
+            
+
         }
+
+        
+        
 
     }
 
