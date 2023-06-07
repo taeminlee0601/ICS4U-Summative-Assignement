@@ -3,23 +3,32 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.awt.image.BufferedImage;
 
 public class CharacterSelectPanel extends ParentPanel {
     private JButton leftButton = new JButton();
     private JButton rightButton = new JButton();
-    private JButton yog = new JButton(new ImageIcon("assets/yog-sothoth.jpg"));
+    private JButton[] buttonArray = new JButton[3];
+    private HashMap<String, ArrayList<legends>> legendsMap = new HashMap<String, ArrayList<legends>>();
     
-    public CharacterSelectPanel() {
-
-    }
-
+    /**
+     * 
+     * @param backgroundFile This is nullable
+     * @param fontFile This is nullable
+     */
     public CharacterSelectPanel(File backgroundFile, File fontFile) {
         super(backgroundFile, fontFile);
-
     }
 
     public void createPanel() {
+
+        for (int a = 0; a < buttonArray.length; a++) {
+            buttonArray[a] = new JButton();
+            buttonArray[a].setBounds(75+(a*253),25,228,275);
+        }
+
         setVisible(true);
         setSize(900,500);
         setLayout(null);
@@ -29,8 +38,6 @@ public class CharacterSelectPanel extends ParentPanel {
 
         leftButton.setFont(customFont);
         rightButton.setFont(customFont);
-        
-        yog.setBounds(getWidth()/2, getHeight()/2, 100, 122);
 
         leftButton.setText("<");
         leftButton.setOpaque(false);
@@ -48,7 +55,10 @@ public class CharacterSelectPanel extends ParentPanel {
 
         add(leftButton);
         add(rightButton);
-        add(yog);
+        
+        for (int a = 0; a < buttonArray.length; a++) {
+            add(buttonArray[a]);
+        }
     }
 
     @Override

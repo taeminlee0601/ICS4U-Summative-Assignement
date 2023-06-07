@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.io.File;
+
 public class legends
 {
     private String name;
@@ -6,6 +8,7 @@ public class legends
     private ArrayList<move> movesets;
     private stats statistic;
     private String type;
+    private File imageFile;
     
     public legends(String name, String description, ArrayList<move> movesets, stats statistic,String type)
     {
@@ -42,7 +45,12 @@ public class legends
 
     }
 
+    public void setImageFile(File imageFile) {
+        this.imageFile = imageFile;
+    }
 
-
+    public File getImageFile() {
+        return imageFile;
+    }
 
 }
