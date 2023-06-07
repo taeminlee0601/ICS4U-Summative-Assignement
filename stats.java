@@ -1,4 +1,5 @@
 import java.lang.Math;
+import java.util.ArrayList;
 
 public class stats
 {
@@ -16,43 +17,6 @@ public class stats
         this.speed=speed;
         this.defense=defense;
     }
-
-    public static int calcDamage (int movePower, int attack, int defense,String type1,String type2)
-    {
-
-        int damageDone = (movePower * attack / defense);
-        
-        if(type1.equals("Outer")&&type2.equals("Olympus"))
-        {
-            damageDone*=1.12;
-        }
-
-        if(type1.equals("Meme")&&type2.equals("Egyptian"))
-        {
-            damageDone*=1.12;
-        }
-
-        if(type1.equals("Egyptian")&&type2.equals("Outer"))
-        {
-            damageDone*=1.12;
-        }
-
-        if(type1.equals("Olympus")&&type2.equals("Meme"))
-        {
-            damageDone*=1.12;
-        }
-        
-        return damageDone;
-    }
-
-    
-
-
-
-
-
-
-
 
     public int getHP()
     {
