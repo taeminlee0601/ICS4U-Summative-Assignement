@@ -169,18 +169,22 @@ public class LegendsInfo {
         characterList.add(ra);
 
         legends horus = new legends("Horus","God of the sky ruler of the pharaohs",horusMoveset,horusStat,"Egyptian");
-        
+        horus.setImageFile(new File("assets/Characters/horus.jpg"));
+
         characterList.add(horus);
 
         legends zeus = new legends("Zeus","King of gods and ruler of Olympus",zeusMoveset,zeusStat,"Olympus");
+        zeus.setImageFile(new File("assets/Characters/zeus.jpg"));
 
         characterList.add(zeus);
 
         legends poseidon = new legends("Poseidon","God of the sea owner of atlantis",poseidonMoveset,posidionStat,"Olympus");
+        poseidon.setImageFile(new File("assets/Characters/poseidon.jpg"));
 
         characterList.add(poseidon);
 
         legends hades = new legends("Hades","God of the underworld owner of the domain of the dead",hadesMoveset,hadesStat,"Olympus");
+        hades.setImageFile(new File("assets/Characters/hades.jpg"));
 
         characterList.add(hades);
     }
