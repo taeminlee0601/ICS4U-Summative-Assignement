@@ -13,7 +13,7 @@ public class CharacterSelectPanel extends ParentPanel {
     private JButton leftButton = new JButton();
     private JButton rightButton = new JButton();
     private JButton[] buttonArray = new JButton[3];
-    private HashMap<String, ArrayList<legends>> legendsMap = new HashMap<String, ArrayList<legends>>();
+    private HashMap<String, ArrayList<Legends>> legendsMap = new HashMap<String, ArrayList<Legends>>();
     private ArrayList<String> legendType = new ArrayList<String>();
     
     public CharacterSelectPanel() {
@@ -78,12 +78,12 @@ public class CharacterSelectPanel extends ParentPanel {
         legendType.add("Olympus Gods");
 
         for (int a = 0; a < legendType.size(); a++) {
-            legendsMap.put(legendType.get(a), new ArrayList<legends>());
+            legendsMap.put(legendType.get(a), new ArrayList<Legends>());
         }
 
         LegendsInfo legendsInfo = new LegendsInfo();
 
-        ArrayList<legends> legendList = legendsInfo.getLegendsList();
+        ArrayList<Legends> legendList = legendsInfo.getLegendsList();
 
         int count = 0;
 

@@ -1,17 +1,18 @@
 import java.util.ArrayList;
 import java.io.File;
+import java.util.Random;
 
-public class legends
+public class Legends
 {
     private String name;
     private String description;
-    private ArrayList<move> movesets;
-    private stats statistic;
+    private ArrayList<Move> movesets;
+    private Stats statistic;
     private String type;
     private File imageFile;
     
     
-    public legends(String name, String description, ArrayList<move> movesets, stats statistic,String type)
+    public Legends(String name, String description, ArrayList<Move> movesets, Stats statistic,String type)
     {
         this.name=name;
         this.description=description;
@@ -20,12 +21,12 @@ public class legends
         this.type=type;
     }
 
-    public ArrayList<move> getMoveset()
+    public ArrayList<Move> getMoveset()
     {
         return movesets;
     }
 
-    public stats getStats()
+    public Stats getStats()
     {
         return statistic;
     }
@@ -40,7 +41,7 @@ public class legends
         return description;
     }
 
-    public static int calcDamage (int whichMove, legends legend, legends otherLegend)
+    public static int calcDamage (int whichMove, Legends legend, Legends otherLegend)
     {
 
         int damageDone = (legend.getMoveset().get(whichMove).getPower() *  legend.getStats().getAttack() /  otherLegend.getStats().getDefense());
@@ -91,7 +92,7 @@ public class legends
 
     }
 
-    public static void showMoveset(ArrayList<move> moveset)
+    public static void showMoveset(ArrayList<Move> moveset)
     {
         System.out.println("Move 1 name: "+ moveset.get(0).getMoveName());
         System.out.println("Move 1 power: "+ moveset.get(0).getPower());
@@ -111,6 +112,22 @@ public class legends
 
         System.out.println();
 
+    }
+
+    public static boolean accuracyCheck (int accuracy)
+    {
+        Random random = new Random();
+
+        int randomNumber = random.nextInt(101);
+
+        if (randomNumber <= accuracy)
+        {
+            return true;
+        }   
+        else
+        {
+            return false;
+        }
     }
 
     public void setImageFile(File imageFile) {

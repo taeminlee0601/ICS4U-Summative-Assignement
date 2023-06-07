@@ -1,25 +1,25 @@
 import java.util.ArrayList;
-public class move 
+public class Move 
 {
     
     private String moveName;
     private int power;
     private int accuracy;
 
-    public move (String moveName, int power, int accuracy)
+    public Move (String moveName, int power, int accuracy)
     {
         this.moveName=moveName;
         this.power=power;
         this.accuracy=accuracy;
     }
 
-    public move(String moveName, int accuracy)
+    public Move(String moveName, int accuracy)
     {
         this.moveName=moveName;
         this.accuracy=accuracy;
     }
     
-    public move(String moveName)
+    public Move(String moveName)
     {
         this.moveName=moveName;
     }
@@ -39,9 +39,9 @@ public class move
         return accuracy;
     }
 
-    public static ArrayList<move> addMoveToMoveset(move move1, move move2, move move3)
+    public static ArrayList<Move> addMoveToMoveset(Move move1, Move move2, Move move3)
     {
-        ArrayList <move> arr = new ArrayList<move>();
+        ArrayList <Move> arr = new ArrayList<Move>();
         arr.add(move1);
         arr.add(move2);
         arr.add(move3);

@@ -1,7 +1,4 @@
-import java.lang.Math;
-import java.util.ArrayList;
-
-public class stats
+public class Stats
 {
     private int hp;
     private int attack;
@@ -10,7 +7,7 @@ public class stats
 
 //constructors
 
-    public stats(int hp, int attack, int speed, int defense)
+    public Stats(int hp, int attack, int speed, int defense)
     {
         this.hp=hp;
         this.attack=attack;
