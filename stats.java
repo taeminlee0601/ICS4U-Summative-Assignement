@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.lang.Math;
+
 public class stats
 {
     private int hp;
@@ -56,6 +58,12 @@ public class stats
         
         return damageDone;
     }
+
+    
+
+
+
+
 
 
 
