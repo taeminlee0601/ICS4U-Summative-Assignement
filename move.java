@@ -13,17 +13,6 @@ public class Move
         this.accuracy=accuracy;
     }
 
-    public Move(String moveName, int accuracy)
-    {
-        this.moveName=moveName;
-        this.accuracy=accuracy;
-    }
-    
-    public Move(String moveName)
-    {
-        this.moveName=moveName;
-    }
-
     public String getMoveName()
     {
         return moveName;
