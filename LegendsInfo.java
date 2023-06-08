@@ -119,7 +119,7 @@ public class LegendsInfo {
         characterList.add(yog);
 
         legends cthulhu = new legends("Cthulhu","Colossal ancient god lying dormant in the sea waiting for someone to wake him",cthMoveset,cthulhuStat,"Outer");
-        cthulhu.setImageFile(new File("assets/Character/cthulhu.jpg"));
+        cthulhu.setImageFile(new File("assets/Characters/cthulhu.jpg"));
         
         characterList.add(cthulhu);
 

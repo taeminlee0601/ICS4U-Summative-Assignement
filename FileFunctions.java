@@ -11,7 +11,7 @@ public class FileFunctions {
      * Returns a resized Image variable
      * @param width
      * @param height
-     * @return
+     * @return resizedImage
      */
     public static Image resizeImage(File imageFile, int width, int height) {
         BufferedImage bufferedImage;

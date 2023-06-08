@@ -117,4 +117,8 @@ public class legends
         this.imageFile = imageFile;
     }
 
+    public File getImageFile() {
+        return imageFile;
+    }
+
 }
