@@ -27,87 +27,128 @@ public class LegendsInfo {
 
         Move yogMove1= new Move("Eldritch Grasp",150,80);
         Move yogMove2 = new Move("Unfathomable Presence",180,60);
-        Move yogMove3 = new Move("Chaos Rift",120,100);
+        Move yogMove3 = new Move("Chaos Rift",120,90);
 
         ArrayList<Move> yogMoveset = Move.addMoveToMoveset(yogMove1,yogMove2, yogMove3);
 
-        Move cthulhuMove1 = new Move("Abyssal Awakening", 130, 100);
-        Move cthulhuMove2 = new Move("Call of the Deep");
-        Move cthulhuMove3 = new Move("R’lyehian Resurgence");
+        //attack move
+        Move cthulhuMove1 = new Move("Abyssal Awakening", 130, 90);
+        //buff move
+        Move cthulhuMove2 = new Move("Call of the Deep",0,100);
+        //healing
+        Move cthulhuMove3 = new Move("R’lyehian Resurgence",0,100);
         
         ArrayList<Move> cthMoveset = Move.addMoveToMoveset(cthulhuMove1,cthulhuMove2, cthulhuMove3);
 
+        //attack move
         Move azathothMove1 = new Move("Nihilistic Pulse",260,20);
+        //attack move
         Move azathothMove2 = new Move("Slumbering Malevolence",140, 70);
+        //attack move
         Move azathothMove3 = new Move("h' zhro geb",10000,1);
 
         ArrayList<Move> azaMoveset = Move.addMoveToMoveset(azathothMove1,azathothMove2, azathothMove3);
 
+        //attack move
         Move rickMove1 = new Move("Rickroll Surprise",90,100);
-        Move rickMove2 = new Move("Rick’s Redemption");
-        Move rickMove3 = new Move("Melodic Encore");
+        //attack move
+        Move rickMove2 = new Move("Rick’s Redemption",130,70);
+        //buff move
+        Move rickMove3 = new Move("Melodic Encore",0,100);
 
         ArrayList<Move> rickMoveset = Move.addMoveToMoveset(rickMove1,rickMove2,rickMove3);
 
+        //attack move
         Move derpMove1 = new Move("Derpy Pouce",90,100);
-        Move derpMove2 = new Move("Derpocalypse ",100);
-        Move derpMove3 = new Move("Whimsical Charm");
+        //attack move
+        Move derpMove2 = new Move("Derpocalypse ",120,80);
+        //attack move
+        Move derpMove3 = new Move("Whimsical Charm",0,100);
 
         ArrayList<Move> derpMoveset = Move.addMoveToMoveset(derpMove1,derpMove2,derpMove3);
         
+        //attack move
         Move godzillaMove1 = new Move("Atomic Breath",100,90);
-        Move godzillaMove2 = new Move("Nuclear Regeneration");
-        Move godzillaMove3 = new Move("Vengeful Retaliation");
+        //healing
+        Move godzillaMove2 = new Move("Nuclear Regeneration",0,100);
+        //attack move
+        Move godzillaMove3 = new Move("Vengeful Retaliation",200,50);
 
         ArrayList<Move> godzillaMoveset = Move.addMoveToMoveset(godzillaMove1,godzillaMove2,godzillaMove3);
 
-        Move odinMove1 = new Move("Hugin and Munin");
+        //attack move
+        Move odinMove1 = new Move("Hugin and Munin",100,100);
+        //attack move
         Move odinMove2 = new Move("Allfather Strike",120,80);
-        Move odinMove3 = new Move("Insight");
+        //buff move
+        Move odinMove3 = new Move("Insight",0,100);
 
         ArrayList<Move> odinMoveset = Move.addMoveToMoveset(odinMove1,odinMove2,odinMove3);
 
-        Move lokiMove1 = new Move("Shape Shift");
-        Move lokiMove2 = new Move("Illusionary Strike",100,90);
-        Move lokiMove3 = new Move("Mirror Image");
+        //attack move
+        Move lokiMove1 = new Move("Trickster",80,100);
+        //attack move
+        Move lokiMove2 = new Move("Illusionary Strike",120,80);
+        //buff move
+        Move lokiMove3 = new Move("Mirror Image",0,100);
         
         ArrayList<Move> lokiMoveset = Move.addMoveToMoveset(lokiMove1, lokiMove2, lokiMove3);
 
+        //attack move
         Move thorMove1 = new Move("Mjolnir's Strike",90,100);
+        //attack move
         Move thorMove2 = new Move("Lighting bolt",110,80);
-        Move thorMove3 = new Move("Call of Lighting");
+        //buff move
+        Move thorMove3 = new Move("Call of Lighting",0,100);
+
         ArrayList<Move> thorMoveset = Move.addMoveToMoveset(thorMove1, thorMove2, thorMove3);
         
+        //attack move
         Move anubisMove1 = new Move("Soul Drain",100,70);
-        Move anubisMove2 = new Move("Pharaoh's Tomb",70,90);
-        Move anubisMove3 = new Move("Underworld Summon");
+        //attack move
+        Move anubisMove2 = new Move("Pharaoh's Tomb",70,100);
+        //buff move
+        Move anubisMove3 = new Move("Underworld Summon",0,100);
 
         ArrayList<Move> anubisMoveset = Move.addMoveToMoveset(anubisMove1, anubisMove2, anubisMove3);
-        Move raMove1 = new Move("Flash");
-        Move raMove2 = new Move("Lightspeed");
-        Move raMove3 = new Move("Sunshine",160,70);
+
+        //attack move
+        Move raMove1 = new Move("Flash",130,70);
+        //buff move
+        Move raMove2 = new Move("Lightspeed",0,100);
+        //attack move
+        Move raMove3 = new Move("Sunshine",160,60);
 
         ArrayList<Move> raMoveset = Move.addMoveToMoveset(raMove1, raMove2, raMove3);
 
+        //attack move
         Move horusMove1 = new Move("Falcon Strike",80,100);
-        Move horusMove2 = new Move("Divine Healing");
-        Move horusMove3 = new Move("Pharaoh's Judgement",200,80);
+        //healing
+        Move horusMove2 = new Move("Divine Healing",0,100);
+        //attack move
+        Move horusMove3 = new Move("Pharaoh's Judgement",160,80);
 
         ArrayList<Move> horusMoveset = Move.addMoveToMoveset(horusMove1, horusMove2, horusMove3);
 
+        //attack move
         Move zeusMove1 = new Move("ThunderBolt",80,100);
+        //attack move
         Move zeusMove2 = new Move("ThunderStorm",140,70);
+        //attack move
         Move zeusMove3 = new Move("Typhoon",100,90);
 
         ArrayList<Move> zeusMoveset = Move.addMoveToMoveset(zeusMove1, zeusMove2, zeusMove3);
 
-        Move poseidonMove1 = new Move("Flood",100,80);
-        Move poseidonMove2 = new Move("Regenerate");
+        //attack move
+        Move poseidonMove1 = new Move("Flood",110,80);
+        //healing
+        Move poseidonMove2 = new Move("Regenerate",0,100);
+        //attack move
         Move poseidonMove3 = new Move("Trident Throw",70,100);
 
         ArrayList<Move> poseidonMoveset = Move.addMoveToMoveset(poseidonMove1, poseidonMove2, poseidonMove3);
 
-        Move hadesMove1 = new Move("Invisinility");
+        Move hadesMove1 = new Move("Invisinility",0,100);
         Move hadesMove2 = new Move("Soul Absorb",80,100);
         Move hadesMove3 = new Move("Reckless Attack",170,50);
         
@@ -119,7 +160,7 @@ public class LegendsInfo {
         characterList.add(yog);
 
         Legends cthulhu = new Legends("Cthulhu","Colossal ancient god lying dormant in the sea waiting for someone to wake him",cthMoveset,cthulhuStat,"Outer");
-        cthulhu.setImageFile(new File("assets/Character/cthulhu.jpg"));
+        cthulhu.setImageFile(new File("assets/Characters/cthulhu.jpg"));
         
         characterList.add(cthulhu);
 

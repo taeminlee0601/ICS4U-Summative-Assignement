@@ -4,6 +4,7 @@ import java.awt.*;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Set;
 
 public class CharacterSelectPanel extends ParentPanel {
     private JButton leftButton = new JButton();
@@ -30,11 +31,12 @@ public class CharacterSelectPanel extends ParentPanel {
 
     public void createPanel() {
 
-        for (int a = 0; a < buttonArray.length; a++) {
+        for (int a = 0; a < buttonArray.length; a++) {            
+            currentDisplayed[a] = legendsMap.get(legendType.get(0)).get(a);
+
             buttonArray[a] = new JButton();
             buttonArray[a].setBounds(75+(a*253),25,228,275);
-            buttonArray[a].setIcon(new ImageIcon(FileFunctions.resizeImage(legendsMap.get(legendType.get(0)).get(a).getImageFile(), 228, 275)));
-            currentDisplayed[a] = legendsMap.get(legendType.get(0)).get(a);
+            buttonArray[a].setIcon(new ImageIcon(FileFunctions.resizeImage(currentDisplayed[a].getImageFile(), 228, 275)));
         }
 
         setVisible(true);
@@ -61,8 +63,8 @@ public class CharacterSelectPanel extends ParentPanel {
         rightButton.setBounds(835, 0, 50, 600);
         rightButton.setForeground(Color.WHITE);
         
-        leftButton.addActionListener(new SelectLeftButtonActionListener(buttonArray, legendType, legendsMap));
-        rightButton.addActionListener(new SelectRightButtonActionListener(buttonArray, legendType, legendsMap));
+        // leftButton.addActionListener(new SelectLeftButtonActionListener(buttonArray, legendType, legendsMap));
+        // rightButton.addActionListener(new SelectRightButtonActionListener(buttonArray, legendType, legendsMap));
 
         add(leftButton);
         add(rightButton);
@@ -95,6 +97,17 @@ public class CharacterSelectPanel extends ParentPanel {
             }
             
             legendsMap.get(legendType.get(count)).add(legendList.get(a));
+        }
+
+        Set<String> keySet = legendsMap.keySet();
+
+        for (String key: keySet) {
+            System.out.println(key);
+            ArrayList<Legends> list = legendsMap.get(key);
+
+            for (int a = 0; a < list.size(); a++) {
+                System.out.println(list.get(a).getImageFile().getPath());
+            }
         }
     }
 
