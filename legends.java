@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.io.File;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Legends
 {
@@ -134,4 +135,17 @@ public class Legends
         this.imageFile = imageFile;
     }
 
+    public static void swapLegend(Player player,Legends legend, Legends otherLegend)
+    {   
+        int legendIndex = Player.getIndiceInCharacter(player.getCharacter(), legend);
+        int otherLegendIndex = Player.getIndiceInCharacter(player.getCharacter(), otherLegend);
+        
+        player.setCharacter(legendIndex, otherLegend);
+        player.setCharacter(otherLegendIndex, legend);
+
+        player.showLegendListPlayer(player);
+        System.out.println();
+    }
+
 }
+
