@@ -39,7 +39,7 @@ public class LegendsInfo {
 
         Move azathothMove1 = new Move("Nihilistic Pulse",260,20);
         Move azathothMove2 = new Move("Slumbering Malevolence",140, 70);
-        Move azathothMove3 = new Move("h' zhro geb",1);
+        Move azathothMove3 = new Move("h' zhro geb",10000,1);
 
         ArrayList<Move> azaMoveset = Move.addMoveToMoveset(azathothMove1,azathothMove2, azathothMove3);
 
