@@ -7,9 +7,9 @@ import javax.swing.*;
 public class SelectRightButtonActionListener implements ActionListener {
     private JButton[] buttonArray;
     private ArrayList<String> legendType;
-    private HashMap<String, ArrayList<legends>> legendsMap;
+    private HashMap<String, ArrayList<Legends>> legendsMap;
 
-    public SelectRightButtonActionListener(JButton[] buttonArray, ArrayList<String> legendType, HashMap<String,ArrayList<legends>> legendsMap) {
+    public SelectRightButtonActionListener(JButton[] buttonArray, ArrayList<String> legendType, HashMap<String,ArrayList<Legends>> legendsMap) {
         this.buttonArray = buttonArray;
         this.legendType = legendType;
         this.legendsMap = legendsMap;
