@@ -48,7 +48,7 @@ public class ParentPanel extends JPanel {
             // Creates a buffredImage that reads the image files
             bufferedBackground = ImageIO.read(backgroundFile);
             // Resizing the background file 
-            background = bufferedBackground.getScaledInstance(900, 500, Image.SCALE_DEFAULT);
+            background = bufferedBackground.getScaledInstance(900, 600, Image.SCALE_DEFAULT);
         // Checks for and IOException
         } catch (IOException e) {
             // Prints the error
@@ -66,7 +66,7 @@ public class ParentPanel extends JPanel {
             // Creates an graphic environment
             GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
             // Creates the custom font
-            customFont = Font.createFont(Font.TRUETYPE_FONT, fontFile).deriveFont(30f);
+            customFont = Font.createFont(Font.TRUETYPE_FONT, fontFile).deriveFont(50f);
             // Adds the font to the graphics environment
             ge.registerFont(customFont);
         // Checks for an IOException

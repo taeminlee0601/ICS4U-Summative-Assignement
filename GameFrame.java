@@ -31,7 +31,7 @@ public class GameFrame extends JFrame {
 
         // Settings of the frame
         // Setting the size of the frame to 900x500
-        setSize(900,500);
+        setSize(900,600);
         // Setting the frame to not be resizeable
         setResizable(false);
         // Makeing the frame be able to be exited when the x is pressed

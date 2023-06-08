@@ -38,7 +38,7 @@ public class StartPanel extends ParentPanel {
         // Make the panel visible
         setVisible(true);
         // Set the size of the panel to be 900x500
-        setSize(900,500);
+        setSize(900,600);
         // Make it so that there is no layout
         setLayout(null);
 
@@ -59,7 +59,7 @@ public class StartPanel extends ParentPanel {
         // Make the border of the button not visible
         playButton.setBorderPainted(false);
         // Set the location and the size of but button
-        playButton.setBounds(250, getHeight()/2 + 50, 100, 100);
+        playButton.setBounds(getWidth()/2 - 250, getHeight()/2, 200, 100);
         // Set the colour of text to white
         playButton.setForeground(Color.WHITE);
 
@@ -72,7 +72,7 @@ public class StartPanel extends ParentPanel {
         // Make the border of the butotn not visible
         exitButton.setBorderPainted(false);
         // Set the location and size of the button
-        exitButton.setBounds(getWidth()/2 + 250/2, getHeight()/2 + 50, 100, 100);
+        exitButton.setBounds(getWidth()/2 + 50, getHeight()/2, 200, 100);
         // Set the colour of the text to white
         exitButton.setForeground(Color.WHITE);
 
@@ -84,11 +84,11 @@ public class StartPanel extends ParentPanel {
         // Set the text/title as "Legend Battle Simulator"
         title.setText("Legend Battle Simulator");
         // Set the font to the custom font
-        title.setFont(customFont.deriveFont(50f));
+        title.setFont(customFont.deriveFont(70f));
         // Set the text colour to white
         title.setForeground(Color.WHITE);
         // Set the location and size of the button
-        title.setBounds(getWidth()/4, getHeight()/2 - 100, 500, 100);
+        title.setBounds(125, getHeight()/2 - 100, 700, 100);
 
         // Add the buttons and label to the panel
         add(playButton);

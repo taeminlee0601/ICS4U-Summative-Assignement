@@ -3,6 +3,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 
+import javax.swing.JOptionPane;
+
 /*
  * This class is the action listener class of the play button in the start panel
  * Implements ActionLister
@@ -11,7 +13,7 @@ public class PlayButtonActionListener implements ActionListener {
     // Create instance variables
     private StartPanel startPanel;
     // Create the next panel
-    private CharacterSelectPanel selectPanel = new CharacterSelectPanel(null, null);
+    private CharacterSelectPanel selectPanel = new CharacterSelectPanel();
     private GameFrame frame;
 
     /**
@@ -29,6 +31,7 @@ public class PlayButtonActionListener implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
+
         // Initializes the settings of the next panel
         // Sets the backgroundFile of the character select panel
         selectPanel.setBackgroundFile(new File("assets/CharacterSelection.jpg"));
@@ -42,6 +45,8 @@ public class PlayButtonActionListener implements ActionListener {
 
         // Adds the character select panel to the frame
         frame.add(selectPanel);
+
+        JOptionPane.showMessageDialog(frame, "Player 1 choose 3 characters by clicking on the Character's image");
     }
     
 }

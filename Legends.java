@@ -135,6 +135,10 @@ public class Legends
         this.imageFile = imageFile;
     }
 
+    public File getImageFile() {
+        return imageFile;
+    }
+
     public static void swapLegend(Player player,Legends legend, Legends otherLegend)
     {   
         int legendIndex = Player.getIndiceInCharacter(player.getCharacter(), legend);
@@ -148,4 +152,3 @@ public class Legends
     }
 
 }
-
