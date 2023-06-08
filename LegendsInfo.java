@@ -2,194 +2,194 @@ import java.io.File;
 import java.util.ArrayList;
 
 public class LegendsInfo {
-    private ArrayList<legends> characterList = new ArrayList<legends>();
+    private ArrayList<Legends> characterList = new ArrayList<Legends>();
     
     public LegendsInfo() {
-        stats yogStat = new stats(900,100,50,150);
-        stats cthulhuStat = new stats(1000,90,70,140);
-        stats azathothStat = new stats(1500,110,40,170);
+        Stats yogStat = new Stats(900,100,50,150);
+        Stats cthulhuStat = new Stats(1000,90,70,140);
+        Stats azathothStat = new Stats(1500,110,40,170);
 
-        stats rickStat = new stats(750,60,90,100);
-        stats derpStat = new stats(650,100,110,80);
-        stats godzillaStat = new stats(950, 100, 100, 130);
+        Stats rickStat = new Stats(750,60,90,100);
+        Stats derpStat = new Stats(650,100,110,80);
+        Stats godzillaStat = new Stats(950, 100, 100, 130);
 
-        stats odinStat = new stats(900,80,70,50);
-        stats lokiStat = new stats(800, 90, 80,60);
-        stats thorStat = new stats(850,100,85,40);
+        Stats odinStat = new Stats(900,80,70,50);
+        Stats lokiStat = new Stats(800, 90, 80,60);
+        Stats thorStat = new Stats(850,100,85,40);
 
-        stats anubisStat = new stats (750,130,95,80);
-        stats raStat = new stats (650,120,105,70);
-        stats horusStat = new stats (700,115,100,85);
+        Stats anubisStat = new Stats (750,130,95,80);
+        Stats raStat = new Stats (650,120,105,70);
+        Stats horusStat = new Stats (700,115,100,85);
 
-        stats zeusStat = new stats (900,90,115,100);
-        stats posidionStat = new stats (1000,85,95,95);
-        stats hadesStat = new stats (850,100,120,90);
+        Stats zeusStat = new Stats (900,90,115,100);
+        Stats posidionStat = new Stats (1000,85,95,95);
+        Stats hadesStat = new Stats (850,100,120,90);
 
-        move yogMove1= new move("Eldritch Grasp",150,80);
-        move yogMove2 = new move("Unfathomable Presence",180,60);
-        move yogMove3 = new move("Chaos Rift",120,100);
+        Move yogMove1= new Move("Eldritch Grasp",150,80);
+        Move yogMove2 = new Move("Unfathomable Presence",180,60);
+        Move yogMove3 = new Move("Chaos Rift",120,100);
 
-        ArrayList<move> yogMoveset = move.addMoveToMoveset(yogMove1,yogMove2, yogMove3);
+        ArrayList<Move> yogMoveset = Move.addMoveToMoveset(yogMove1,yogMove2, yogMove3);
 
-        move cthulhuMove1 = new move("Abyssal Awakening", 130, 100);
-        move cthulhuMove2 = new move("Call of the Deep");
-        move cthulhuMove3 = new move("R’lyehian Resurgence");
+        Move cthulhuMove1 = new Move("Abyssal Awakening", 130, 100);
+        Move cthulhuMove2 = new Move("Call of the Deep");
+        Move cthulhuMove3 = new Move("R’lyehian Resurgence");
         
-        ArrayList<move> cthMoveset = move.addMoveToMoveset(cthulhuMove1,cthulhuMove2, cthulhuMove3);
+        ArrayList<Move> cthMoveset = Move.addMoveToMoveset(cthulhuMove1,cthulhuMove2, cthulhuMove3);
 
-        move azathothMove1 = new move("Nihilistic Pulse",260,20);
-        move azathothMove2 = new move("Slumbering Malevolence",140, 70);
-        move azathothMove3 = new move("h' zhro geb",1);
+        Move azathothMove1 = new Move("Nihilistic Pulse",260,20);
+        Move azathothMove2 = new Move("Slumbering Malevolence",140, 70);
+        Move azathothMove3 = new Move("h' zhro geb",1);
 
-        ArrayList<move> azaMoveset = move.addMoveToMoveset(azathothMove1,azathothMove2, azathothMove3);
+        ArrayList<Move> azaMoveset = Move.addMoveToMoveset(azathothMove1,azathothMove2, azathothMove3);
 
-        move rickMove1 = new move("Rickroll Surprise",90,100);
-        move rickMove2 = new move("Rick’s Redemption");
-        move rickMove3 = new move("Melodic Encore");
+        Move rickMove1 = new Move("Rickroll Surprise",90,100);
+        Move rickMove2 = new Move("Rick’s Redemption");
+        Move rickMove3 = new Move("Melodic Encore");
 
-        ArrayList<move> rickMoveset = move.addMoveToMoveset(rickMove1,rickMove2,rickMove3);
+        ArrayList<Move> rickMoveset = Move.addMoveToMoveset(rickMove1,rickMove2,rickMove3);
 
-        move derpMove1 = new move("Derpy Pouce",90,100);
-        move derpMove2 = new move("Derpocalypse ",100);
-        move derpMove3 = new move("Whimsical Charm");
+        Move derpMove1 = new Move("Derpy Pouce",90,100);
+        Move derpMove2 = new Move("Derpocalypse ",100);
+        Move derpMove3 = new Move("Whimsical Charm");
 
-        ArrayList<move> derpMoveset = move.addMoveToMoveset(derpMove1,derpMove2,derpMove3);
+        ArrayList<Move> derpMoveset = Move.addMoveToMoveset(derpMove1,derpMove2,derpMove3);
         
-        move godzillaMove1 = new move("Atomic Breath",100,90);
-        move godzillaMove2 = new move("Nuclear Regeneration");
-        move godzillaMove3 = new move("Vengeful Retaliation");
+        Move godzillaMove1 = new Move("Atomic Breath",100,90);
+        Move godzillaMove2 = new Move("Nuclear Regeneration");
+        Move godzillaMove3 = new Move("Vengeful Retaliation");
 
-        ArrayList<move> godzillaMoveset = move.addMoveToMoveset(godzillaMove1,godzillaMove2,godzillaMove3);
+        ArrayList<Move> godzillaMoveset = Move.addMoveToMoveset(godzillaMove1,godzillaMove2,godzillaMove3);
 
-        move odinMove1 = new move("Hugin and Munin");
-        move odinMove2 = new move("Allfather Strike",120,80);
-        move odinMove3 = new move("Insight");
+        Move odinMove1 = new Move("Hugin and Munin");
+        Move odinMove2 = new Move("Allfather Strike",120,80);
+        Move odinMove3 = new Move("Insight");
 
-        ArrayList<move> odinMoveset = move.addMoveToMoveset(odinMove1,odinMove2,odinMove3);
+        ArrayList<Move> odinMoveset = Move.addMoveToMoveset(odinMove1,odinMove2,odinMove3);
 
-        move lokiMove1 = new move("Shape Shift");
-        move lokiMove2 = new move("Illusionary Strike",100,90);
-        move lokiMove3 = new move("Mirror Image");
+        Move lokiMove1 = new Move("Shape Shift");
+        Move lokiMove2 = new Move("Illusionary Strike",100,90);
+        Move lokiMove3 = new Move("Mirror Image");
         
-        ArrayList<move> lokiMoveset = move.addMoveToMoveset(lokiMove1, lokiMove2, lokiMove3);
+        ArrayList<Move> lokiMoveset = Move.addMoveToMoveset(lokiMove1, lokiMove2, lokiMove3);
 
-        move thorMove1 = new move("Mjolnir's Strike",90,100);
-        move thorMove2 = new move("Lighting bolt",110,80);
-        move thorMove3 = new move("Call of Lighting");
-        ArrayList<move> thorMoveset = move.addMoveToMoveset(thorMove1, thorMove2, thorMove3);
+        Move thorMove1 = new Move("Mjolnir's Strike",90,100);
+        Move thorMove2 = new Move("Lighting bolt",110,80);
+        Move thorMove3 = new Move("Call of Lighting");
+        ArrayList<Move> thorMoveset = Move.addMoveToMoveset(thorMove1, thorMove2, thorMove3);
         
-        move anubisMove1 = new move("Soul Drain",100,70);
-        move anubisMove2 = new move("Pharaoh's Tomb",70,90);
-        move anubisMove3 = new move("Underworld Summon");
+        Move anubisMove1 = new Move("Soul Drain",100,70);
+        Move anubisMove2 = new Move("Pharaoh's Tomb",70,90);
+        Move anubisMove3 = new Move("Underworld Summon");
 
-        ArrayList<move> anubisMoveset = move.addMoveToMoveset(anubisMove1, anubisMove2, anubisMove3);
-        move raMove1 = new move("Flash");
-        move raMove2 = new move("Lightspeed");
-        move raMove3 = new move("Sunshine",160,70);
+        ArrayList<Move> anubisMoveset = Move.addMoveToMoveset(anubisMove1, anubisMove2, anubisMove3);
+        Move raMove1 = new Move("Flash");
+        Move raMove2 = new Move("Lightspeed");
+        Move raMove3 = new Move("Sunshine",160,70);
 
-        ArrayList<move> raMoveset = move.addMoveToMoveset(raMove1, raMove2, raMove3);
+        ArrayList<Move> raMoveset = Move.addMoveToMoveset(raMove1, raMove2, raMove3);
 
-        move horusMove1 = new move("Falcon Strike",80,100);
-        move horusMove2 = new move("Divine Healing");
-        move horusMove3 = new move("Pharaoh's Judgement",200,80);
+        Move horusMove1 = new Move("Falcon Strike",80,100);
+        Move horusMove2 = new Move("Divine Healing");
+        Move horusMove3 = new Move("Pharaoh's Judgement",200,80);
 
-        ArrayList<move> horusMoveset = move.addMoveToMoveset(horusMove1, horusMove2, horusMove3);
+        ArrayList<Move> horusMoveset = Move.addMoveToMoveset(horusMove1, horusMove2, horusMove3);
 
-        move zeusMove1 = new move("ThunderBolt",80,100);
-        move zeusMove2 = new move("ThunderStorm",140,70);
-        move zeusMove3 = new move("Typhoon",100,90);
+        Move zeusMove1 = new Move("ThunderBolt",80,100);
+        Move zeusMove2 = new Move("ThunderStorm",140,70);
+        Move zeusMove3 = new Move("Typhoon",100,90);
 
-        ArrayList<move> zeusMoveset = move.addMoveToMoveset(zeusMove1, zeusMove2, zeusMove3);
+        ArrayList<Move> zeusMoveset = Move.addMoveToMoveset(zeusMove1, zeusMove2, zeusMove3);
 
-        move poseidonMove1 = new move("Flood",100,80);
-        move poseidonMove2 = new move("Regenerate");
-        move poseidonMove3 = new move("Trident Throw",70,100);
+        Move poseidonMove1 = new Move("Flood",100,80);
+        Move poseidonMove2 = new Move("Regenerate");
+        Move poseidonMove3 = new Move("Trident Throw",70,100);
 
-        ArrayList<move> poseidonMoveset = move.addMoveToMoveset(poseidonMove1, poseidonMove2, poseidonMove3);
+        ArrayList<Move> poseidonMoveset = Move.addMoveToMoveset(poseidonMove1, poseidonMove2, poseidonMove3);
 
-        move hadesMove1 = new move("Invisinility");
-        move hadesMove2 = new move("Soul Absorb",80,100);
-        move hadesMove3 = new move("Reckless Attack",170,50);
+        Move hadesMove1 = new Move("Invisinility");
+        Move hadesMove2 = new Move("Soul Absorb",80,100);
+        Move hadesMove3 = new Move("Reckless Attack",170,50);
         
-        ArrayList<move> hadesMoveset = move.addMoveToMoveset(hadesMove1, hadesMove2, hadesMove3);
+        ArrayList<Move> hadesMoveset = Move.addMoveToMoveset(hadesMove1, hadesMove2, hadesMove3);
 
-        legends yog = new legends("Yog-Sothoth","Cosmic entitiy who trasends space and time",yogMoveset,yogStat,"Outer");
+        Legends yog = new Legends("Yog-Sothoth","Cosmic entitiy who trasends space and time",yogMoveset,yogStat,"Outer");
         yog.setImageFile(new File("assets/Characters/yog-sothoth.jpg"));
         
         characterList.add(yog);
 
-        legends cthulhu = new legends("Cthulhu","Colossal ancient god lying dormant in the sea waiting for someone to wake him",cthMoveset,cthulhuStat,"Outer");
-        cthulhu.setImageFile(new File("assets/Characters/cthulhu.jpg"));
+        Legends cthulhu = new Legends("Cthulhu","Colossal ancient god lying dormant in the sea waiting for someone to wake him",cthMoveset,cthulhuStat,"Outer");
+        cthulhu.setImageFile(new File("assets/Character/cthulhu.jpg"));
         
         characterList.add(cthulhu);
 
-        legends azathoth = new legends("Azathoth","Chaotic deity know as the blind god existing at the center of the cosmos",azaMoveset,azathothStat,"Outer");
+        Legends azathoth = new Legends("Azathoth","Chaotic deity know as the blind god existing at the center of the cosmos",azaMoveset,azathothStat,"Outer");
         azathoth.setImageFile(new File("assets/Characters/azathoth.jpg"));
 
         characterList.add(azathoth);
 
-        legends rick = new legends("Rick Asley","Never gonna give you up never gonna let you down never gonna run around and desert you",rickMoveset,rickStat,"Meme");
+        Legends rick = new Legends("Rick Asley","Never gonna give you up never gonna let you down never gonna run around and desert you",rickMoveset,rickStat,"Meme");
         rick.setImageFile(new File("assets/Characters/rick.jpg"));
 
         characterList.add(rick);
 
-        legends cat = new legends("Derp Cat","nyanynaynaynaynaynayna",derpMoveset,derpStat,"Meme");
+        Legends cat = new Legends("Derp Cat","nyanynaynaynaynaynayna",derpMoveset,derpStat,"Meme");
         cat.setImageFile(new File("assets/Characters/derpcat.jpg"));
 
         characterList.add(cat);
 
-        legends godzilla = new legends("Godzilla","King of the monster",godzillaMoveset,godzillaStat,"Meme");
+        Legends godzilla = new Legends("Godzilla","King of the monster",godzillaMoveset,godzillaStat,"Meme");
         godzilla.setImageFile(new File("assets/Characters/godzilla.jpg"));
 
         characterList.add(godzilla);
 
-        legends odin = new legends("Odin","God of wisdom war and death the Allfather",odinMoveset,odinStat,"Norse");
+        Legends odin = new Legends("Odin","God of wisdom war and death the Allfather",odinMoveset,odinStat,"Norse");
         odin.setImageFile(new File("assets/Characters/odin.jpg"));
         
         characterList.add(odin);
 
-        legends loki = new legends("Loki","God of mischief who knows what he might do?",lokiMoveset,lokiStat,"Norse");
+        Legends loki = new Legends("Loki","God of mischief who knows what he might do?",lokiMoveset,lokiStat,"Norse");
         loki.setImageFile(new File("assets/Characters/loki.jpg"));
 
         characterList.add(loki);
 
-        legends thor = new legends("Thor","God of thunder and also a powerful warrior",thorMoveset,thorStat,"Norse");
+        Legends thor = new Legends("Thor","God of thunder and also a powerful warrior",thorMoveset,thorStat,"Norse");
         thor.setImageFile(new File("assets/Characters/thor.jpg"));
 
         characterList.add(thor);
 
-        legends anubis = new legends("Anubis","God of the after life is your heart lighter then a feather?",anubisMoveset,anubisStat,"Egyptian");
+        Legends anubis = new Legends("Anubis","God of the after life is your heart lighter then a feather?",anubisMoveset,anubisStat,"Egyptian");
         anubis.setImageFile(new File("assets/Characters/anubis.jpg"));
 
         characterList.add(anubis);
 
-        legends ra = new legends("Ra","God of the sun and creator of all life supreme leader of the Eygiptian gods",raMoveset,raStat,"Egyptian");
+        Legends ra = new Legends("Ra","God of the sun and creator of all life supreme leader of the Eygiptian gods",raMoveset,raStat,"Egyptian");
         ra.setImageFile(new File("assets/Characters/ra.jpg"));
 
         characterList.add(ra);
 
-        legends horus = new legends("Horus","God of the sky ruler of the pharaohs",horusMoveset,horusStat,"Egyptian");
+        Legends horus = new Legends("Horus","God of the sky ruler of the pharaohs",horusMoveset,horusStat,"Egyptian");
         horus.setImageFile(new File("assets/Characters/horus.jpg"));
 
         characterList.add(horus);
 
-        legends zeus = new legends("Zeus","King of gods and ruler of Olympus",zeusMoveset,zeusStat,"Olympus");
+        Legends zeus = new Legends("Zeus","King of gods and ruler of Olympus",zeusMoveset,zeusStat,"Olympus");
         zeus.setImageFile(new File("assets/Characters/zeus.jpg"));
 
         characterList.add(zeus);
 
-        legends poseidon = new legends("Poseidon","God of the sea owner of atlantis",poseidonMoveset,posidionStat,"Olympus");
+        Legends poseidon = new Legends("Poseidon","God of the sea owner of atlantis",poseidonMoveset,posidionStat,"Olympus");
         poseidon.setImageFile(new File("assets/Characters/poseidon.jpg"));
 
         characterList.add(poseidon);
 
-        legends hades = new legends("Hades","God of the underworld owner of the domain of the dead",hadesMoveset,hadesStat,"Olympus");
+        Legends hades = new Legends("Hades","God of the underworld owner of the domain of the dead",hadesMoveset,hadesStat,"Olympus");
         hades.setImageFile(new File("assets/Characters/hades.jpg"));
 
         characterList.add(hades);
     }
 
-    public ArrayList<legends> getLegendsList() {
+    public ArrayList<Legends> getLegendsList() {
         return characterList;
     }
 }

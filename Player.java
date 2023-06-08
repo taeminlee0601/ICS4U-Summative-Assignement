@@ -1,9 +1,9 @@
 public class Player {
     
-    private legends legend1;
-    private legends legend2;
-    private legends legend3;
-    private legends[] character = {legend1,legend2,legend3};
+    private Legends legend1;
+    private Legends legend2;
+    private Legends legend3;
+    private Legends[] character = {legend1,legend2,legend3};
     
     public Player()
     {
@@ -12,18 +12,44 @@ public class Player {
         legend3=null;
     }
 
-    public legends[] getCharacter()
+    public static int getIndiceInCharacter(Legends[] character,Legends legend)
+    {
+        for(int i=0;i<character.length;i++)
+        {
+            if(character[i]==legend)
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    
+
+    public Legends getCharacter(int i)
+    {
+        return character[i];
+    }
+
+    public Legends[] getCharacter()
     {
         return character;
     }
 
-    public void setCharacter(int num, legends legend)
+    public void setCharacter(int num, Legends legend)
     {
         character[num]=legend;
     }
 
+    public void showLegendListPlayer(Player player)
+    {
+        System.out.println(player.getCharacter(0).getName());
+        System.out.println(player.getCharacter(1).getName());
+        System.out.println(player.getCharacter(2).getName());
+    }
+
     public String toString()
     {
-        return character[0].getName()+"\n"+character[1].getName()+"\n"+character[2].getName();
+        return character[0].getName() + "\n" + character[1].getName() + "\n" + character[2].getName() + "\n";
     }
 }
