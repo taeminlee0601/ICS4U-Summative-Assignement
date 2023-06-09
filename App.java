@@ -299,8 +299,10 @@ public class App
                     System.out.println("Player 1 hits first!");
                     attackPlayer2(currentLegendPlayer1.getMoveset(), currentLegendPlayer1, currentLegendPlayer2);
                 }
-
-                
+                else
+                {
+                    System.out.println("Player 1 hits later because Player 2 is faster!");
+                }
                 // turn=false;
             }
 
