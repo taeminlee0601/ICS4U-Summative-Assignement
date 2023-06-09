@@ -41,11 +41,11 @@ public class Player {
         character[num]=legend;
     }
 
-    public void showLegendListPlayer(Player player)
+    public static void showLegendListPlayer(Player player)
     {
-        System.out.println(player.getCharacter(0).getName());
-        System.out.println(player.getCharacter(1).getName());
-        System.out.println(player.getCharacter(2).getName());
+        System.out.println("1. " + player.getCharacter(0).getName());
+        System.out.println("2. " + player.getCharacter(1).getName());
+        System.out.println("3. " + player.getCharacter(2).getName());
     }
 
     public String toString()
