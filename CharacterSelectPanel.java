@@ -10,6 +10,7 @@ public class CharacterSelectPanel extends ParentPanel {
     private JButton leftButton = new JButton();
     private JButton rightButton = new JButton();
     private JButton[] buttonArray = new JButton[3];
+    private JLabel typeTitle = new JLabel();
     private JLabel[] nameArray = new JLabel[3];
     private JLabel[] descriptionArray = new JLabel[3];
     private Legends[] currentDisplayed = new Legends[3];
@@ -30,21 +31,35 @@ public class CharacterSelectPanel extends ParentPanel {
     }
 
     public void createPanel() {
-
-        for (int a = 0; a < buttonArray.length; a++) {            
-            currentDisplayed[a] = legendsMap.get(legendType.get(0)).get(a);
-
-            buttonArray[a] = new JButton();
-            buttonArray[a].setBounds(75+(a*253),25,228,275);
-            buttonArray[a].setIcon(new ImageIcon(FileFunctions.resizeImage(currentDisplayed[a].getImageFile(), 228, 275)));
-        }
-
         setVisible(true);
         setSize(900,900);
         setLayout(null);
 
         setBackground();
         createFont();
+
+        for (int a = 0; a < buttonArray.length; a++) {            
+            currentDisplayed[a] = legendsMap.get(legendType.get(0)).get(a);
+
+            buttonArray[a] = new JButton();
+            buttonArray[a].setBounds(75+(a*253), 115,228,275);
+            buttonArray[a].setIcon(new ImageIcon(FileFunctions.resizeImage(currentDisplayed[a].getImageFile(), 228, 275)));
+
+            nameArray[a] = new JLabel();
+            nameArray[a].setFont(customFont.deriveFont(30f));
+            nameArray[a].setForeground(Color.WHITE);
+            nameArray[a].setText(currentDisplayed[a].getName());
+            nameArray[a].setHorizontalAlignment(SwingConstants.CENTER);
+            nameArray[a].setBounds(75+(a*253), 375, 228, 100);
+
+            
+        }
+
+        typeTitle.setFont(customFont);
+        typeTitle.setText(legendType.get(0));
+        typeTitle.setBounds(getWidth()/2 - 255, 25, 500, 65);
+        typeTitle.setHorizontalAlignment(SwingConstants.CENTER);
+        typeTitle.setForeground(Color.WHITE);
 
         leftButton.setFont(customFont.deriveFont(30f));
         rightButton.setFont(customFont.deriveFont(30f));
@@ -62,15 +77,17 @@ public class CharacterSelectPanel extends ParentPanel {
         rightButton.setBorderPainted(false);
         rightButton.setBounds(835, 0, 50, 600);
         rightButton.setForeground(Color.WHITE);
-        
-        // leftButton.addActionListener(new SelectLeftButtonActionListener(buttonArray, legendType, legendsMap));
-        // rightButton.addActionListener(new SelectRightButtonActionListener(buttonArray, legendType, legendsMap));
+
+        leftButton.addActionListener(new SelectLeftButtonActionListener(buttonArray, legendType, legendsMap, typeTitle));
+        rightButton.addActionListener(new SelectRightButtonActionListener(buttonArray, legendType, legendsMap, typeTitle));
 
         add(leftButton);
         add(rightButton);
+        add(typeTitle);
 
         for (int a = 0; a < buttonArray.length; a++) {
             add(buttonArray[a]);
+            add(nameArray[a]);
         }
     }
 
@@ -97,17 +114,6 @@ public class CharacterSelectPanel extends ParentPanel {
             }
             
             legendsMap.get(legendType.get(count)).add(legendList.get(a));
-        }
-
-        Set<String> keySet = legendsMap.keySet();
-
-        for (String key: keySet) {
-            System.out.println(key);
-            ArrayList<Legends> list = legendsMap.get(key);
-
-            for (int a = 0; a < list.size(); a++) {
-                System.out.println(list.get(a).getImageFile().getPath());
-            }
         }
     }
 
