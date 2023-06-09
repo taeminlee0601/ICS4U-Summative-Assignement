@@ -9,12 +9,14 @@ public class SelectRightButtonActionListener implements ActionListener {
     private ArrayList<String> legendType;
     private HashMap<String, ArrayList<Legends>> legendsMap;
     private JLabel typeTitle;
+    private JLabel[] nameArray;
 
-    public SelectRightButtonActionListener(JButton[] buttonArray, ArrayList<String> legendType, HashMap<String,ArrayList<Legends>> legendsMap, JLabel typeTitle) {
+    public SelectRightButtonActionListener(JButton[] buttonArray, ArrayList<String> legendType, HashMap<String,ArrayList<Legends>> legendsMap, JLabel typeTitle, JLabel[] nameArray) {
         this.buttonArray = buttonArray;
         this.legendType = legendType;
         this.legendsMap = legendsMap;
         this.typeTitle = typeTitle;
+        this.nameArray = nameArray;
     }
 
     @Override
@@ -25,6 +27,7 @@ public class SelectRightButtonActionListener implements ActionListener {
 
         for (int a = 0; a < buttonArray.length; a++) {
             buttonArray[a].setIcon(new ImageIcon(FileFunctions.resizeImage(legendsMap.get(currentType).get(a).getImageFile(),228, 275)));
+            nameArray[a].setText(legendsMap.get(currentType).get(a).getName());
         }
 
         legendType.add(0, currentType);
