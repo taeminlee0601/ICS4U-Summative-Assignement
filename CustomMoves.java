@@ -1,10 +1,8 @@
 public class CustomMoves {
     
 private String moveName;
-private int accuracy
+private int accuracy;
 
-
-public String heal(String movename)
 
 
 

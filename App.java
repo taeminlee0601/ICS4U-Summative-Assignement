@@ -304,64 +304,47 @@ public class App
     
     public static void game(Player player1, Player player2)
     {
-        boolean temp = true;
+        boolean turn = true;
         Scanner input = new Scanner(System.in);
+        int countBuff1 = 0;
         
-        while (temp) 
+        while (turn) 
         {
             Legends currentLegendPlayer1 = player1.getCharacter(0);
             Legends currentLegendPlayer2 = player2.getCharacter(0);
             
-            System.out.println("It is Player 1's turn. Choose your action: (attack or swap)");
-            String action = input.next();
+
+            System.out.println("It is Player 1's turn. Choose your action: (attack opponent[1], buff yourself [2], or swap legend [3])");
+            int action = input.nextInt();
             System.out.println();
+
             
-            if (action.equals("attack"))
+            if (action==1)
             {
-                System.out.println("The current hp of Player 2 legend is " + currentLegendPlayer2.getStats().getHP());
-                System.out.println("The current hp of Player 2 legend is " + currentLegendPlayer2.getStats().getHP());
-                System.out.println("The current attack of Player 2 legend is " + currentLegendPlayer2.getStats().getAttack());
-                System.out.println("The current speed of Player 2 legend is " + currentLegendPlayer2.getStats().getSpeed());
-                System.out.println("The current defense of Player 2 legend is " + currentLegendPlayer2.getStats().getDefense());
-                System.out.println();
                 attack(currentLegendPlayer1.getMoveset(), currentLegendPlayer1, currentLegendPlayer2);
-                System.out.println("The updated hp of Player 2 legend is " + currentLegendPlayer2.getStats().getHP());
-                System.out.println("The updated attack of Player 2 legend is " + currentLegendPlayer2.getStats().getAttack());
-                System.out.println("The updated speed of Player 2 legend is " + currentLegendPlayer2.getStats().getSpeed());
-                System.out.println("The updated defense of Player 2 legend is " + currentLegendPlayer2.getStats().getDefense());
-                temp=false;
-            } 
-            
-            else if (action.equals("swap"))
-            {
-                boolean validInput=false;
-                while(!validInput)
-                {
-                    System.out.println("Who do you want to switch to? ");
-                    player1.showLegendListPlayer(player1);
-                    System.out.println();
-                    System.out.println("Player's current legend is " + currentLegendPlayer1.getName());
-                    System.out.println();
-                    String who = input.next();
-                    System.out.println();
-                    Legends desiredLegend = null;
-                    
-                    for (int i = 0; i < player1.getCharacter().length; i++) {
-                        if (who.equals(player1.getCharacter(i).getName())) {
-                            validInput=true;
-                            desiredLegend = player1.getCharacter(i);
-                            Legends.swapLegend(player1, currentLegendPlayer1, desiredLegend);
-                            temp=false;
-                            break;
-                        }
-                    }
-                    if (!validInput)
-                    {
-                        System.out.println("Invalid legend name. Please try again.");
-                    }
-                
-                }
+                // turn=false;
             }
+
+            else if(action==2)
+            {
+                if(countBuff1<=5)
+                {
+                    Move.buff(currentLegendPlayer1);
+                    countBuff1++;
+                }
+                else
+                {
+                    System.out.println("You have exceeeded the maximum buff amount!");
+                }
+                // turn=false;
+            }
+
+            else if (action==3)
+            {
+                Legends.swapLegend(player1,currentLegendPlayer1);
+                // turn=false;
+            }
+            
             else
             {
                 System.out.println("Invalid input, try again.");
@@ -423,10 +406,18 @@ public class App
     {
 
         Scanner input = new Scanner(System.in);
+        System.out.println("The current hp of Player 2 legend is " + otherLegend.getStats().getHP());
+        System.out.println("The current attack of Player 2 legend is " + otherLegend.getStats().getAttack());
+        System.out.println("The current speed of Player 2 legend is " + otherLegend.getStats().getSpeed());
+        System.out.println("The current defense of Player 2 legend is " + otherLegend.getStats().getDefense());
+        System.out.println();
+        System.out.println("The following are the moves you can select:");
+        System.out.println();
         Legends.showMoveset(moveset);
         System.out.print("Choose your move: ");
         String move = "";
         boolean validInput = false;
+        
         while(!validInput)
         {
             move=input.nextLine();
@@ -461,6 +452,11 @@ public class App
                 System.out.print("Invalid input! Please enter a valid move name: ");
             }
         }
+        System.out.println();
+        System.out.println("The updated hp of Player 2 legend is " + otherLegend.getStats().getHP());
+        System.out.println("The updated attack of Player 2 legend is " + otherLegend.getStats().getAttack());
+        System.out.println("The updated speed of Player 2 legend is " + otherLegend.getStats().getSpeed());
+        System.out.println("The updated defense of Player 2 legend is " + otherLegend.getStats().getDefense());
     }
 
 
