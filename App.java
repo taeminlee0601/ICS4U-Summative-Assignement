@@ -294,7 +294,13 @@ public class App
             
             if (action==1)
             {
-                attack(currentLegendPlayer1.getMoveset(), currentLegendPlayer1, currentLegendPlayer2);
+                if(Stats.checkSpeed(currentLegendPlayer1, currentLegendPlayer2))
+                {
+                    System.out.println("Player 1 hits first!");
+                    attackPlayer2(currentLegendPlayer1.getMoveset(), currentLegendPlayer1, currentLegendPlayer2);
+                }
+
+                
                 // turn=false;
             }
 
@@ -375,7 +381,7 @@ public class App
 
     
 
-    public static void attack(ArrayList<Move> moveset,Legends legend, Legends otherLegend)
+    public static void attackPlayer2(ArrayList<Move> moveset,Legends legend, Legends otherLegend)
     {
 
         Scanner input = new Scanner(System.in);
@@ -406,13 +412,6 @@ public class App
                     System.out.println("You delt " + Legends.calcDamage(i, legend,otherLegend) + " damage.");
                     break;
                 }
-                else if (move.equals(moveset.get(i).getMoveName())&&moveset.get(i).getPower()==0)
-                {
-                    validInput=true;
-                    
-        
-                    break;
-                }
                 else if(move.equals(moveset.get(i).getMoveName())&&Legends.accuracyCheck(moveset.get(i).getAccuracy())==false)
                 {
                     System.out.println("Your move missed! Try again next time!");
@@ -430,6 +429,56 @@ public class App
         System.out.println("The updated attack of Player 2 legend is " + otherLegend.getStats().getAttack());
         System.out.println("The updated speed of Player 2 legend is " + otherLegend.getStats().getSpeed());
         System.out.println("The updated defense of Player 2 legend is " + otherLegend.getStats().getDefense());
+    }
+
+    public static void attackPlayer1(ArrayList<Move> moveset,Legends legend, Legends otherLegend)
+    {
+
+        Scanner input = new Scanner(System.in);
+        System.out.println("The current hp of Player 1 legend is " + otherLegend.getStats().getHP());
+        System.out.println("The current attack of Player 1 legend is " + otherLegend.getStats().getAttack());
+        System.out.println("The current speed of Player 1 legend is " + otherLegend.getStats().getSpeed());
+        System.out.println("The current defense of Player 1 legend is " + otherLegend.getStats().getDefense());
+        System.out.println();
+        System.out.println("The following are the moves you can select:");
+        System.out.println();
+        Legends.showMoveset(moveset);
+        System.out.print("Choose your move: ");
+        String move = "";
+        boolean validInput = false;
+        
+        while(!validInput)
+        {
+            move=input.nextLine();
+
+            for(int i = 0 ; i<moveset.size();i++)
+            {
+                if(move.equals(moveset.get(i).getMoveName())&&Legends.accuracyCheck(moveset.get(i).getAccuracy())==true)
+                {
+                    validInput=true;
+                    int newHP = otherLegend.getStats().getHP()-Legends.calcDamage(i, legend,otherLegend);
+                    otherLegend.getStats().setHP(newHP);
+                    System.out.println("You hit first, your move hit!");
+                    System.out.println("You delt " + Legends.calcDamage(i, legend,otherLegend) + " damage.");
+                    break;
+                }
+                else if(move.equals(moveset.get(i).getMoveName())&&Legends.accuracyCheck(moveset.get(i).getAccuracy())==false)
+                {
+                    System.out.println("Your move missed! Try again next time!");
+                    return;
+                }
+            }
+            
+            if(!validInput)
+            {
+                System.out.print("Invalid input! Please enter a valid move name: ");
+            }
+        }
+        System.out.println();
+        System.out.println("The updated hp of Player 1 legend is " + otherLegend.getStats().getHP());
+        System.out.println("The updated attack of Player 1 legend is " + otherLegend.getStats().getAttack());
+        System.out.println("The updated speed of Player 1 legend is " + otherLegend.getStats().getSpeed());
+        System.out.println("The updated defense of Player 1 legend is " + otherLegend.getStats().getDefense());
     }
 
 

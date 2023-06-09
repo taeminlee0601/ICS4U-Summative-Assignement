@@ -55,5 +55,17 @@ public class Stats
         this.defense=defense;
     }
 
+    public static boolean checkSpeed(Legends legend, Legends otherLegend)
+    {
+        if(legend.getStats().getSpeed()>otherLegend.getStats().getSpeed())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     
 } 
