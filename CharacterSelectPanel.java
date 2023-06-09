@@ -78,8 +78,8 @@ public class CharacterSelectPanel extends ParentPanel {
         rightButton.setBounds(835, 0, 50, 600);
         rightButton.setForeground(Color.WHITE);
 
-        leftButton.addActionListener(new SelectLeftButtonActionListener(buttonArray, legendType, legendsMap, typeTitle));
-        rightButton.addActionListener(new SelectRightButtonActionListener(buttonArray, legendType, legendsMap, typeTitle));
+        leftButton.addActionListener(new SelectLeftButtonActionListener(buttonArray, legendType, legendsMap, typeTitle, nameArray));
+        rightButton.addActionListener(new SelectRightButtonActionListener(buttonArray, legendType, legendsMap, typeTitle, nameArray));
 
         add(leftButton);
         add(rightButton);
