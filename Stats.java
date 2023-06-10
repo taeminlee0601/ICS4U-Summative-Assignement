@@ -61,6 +61,10 @@ public class Stats
         {
             return true;
         }
+        else if(legend.getStats().getSpeed()==otherLegend.getStats().getSpeed())
+        {
+            return true;
+        }
         else
         {
             return false;
