@@ -1,7 +1,6 @@
 // import the needed packages
 // javax.swing and java.awt=> used for the GUI
 import javax.swing.*;
-import java.awt.*;
 import java.io.File;
 
 /*

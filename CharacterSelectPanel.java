@@ -22,11 +22,14 @@ public class CharacterSelectPanel extends ParentPanel {
         setCharacterHashMap();
     }
 
-    public CharacterSelectPanel(ArrayList<Legends> player1, boolean[] hasPopupOpened) {
+    public CharacterSelectPanel(ArrayList<Legends> player1, boolean[] hasPopupOpened, HashMap<String,ArrayList<Legends>> legendsMap,
+            ArrayList<String> legendsType) {
         this.player1 = player1;
         this.hasPopupOpened = hasPopupOpened;
+        this.legendsMap = legendsMap;
+        this.legendType = legendsType;
 
-        setCharacterHashMap();
+        setToStartTypeList();
     }
 
     /**
@@ -88,11 +91,11 @@ public class CharacterSelectPanel extends ParentPanel {
         rightButton.addActionListener(new SelectRightButtonActionListener(buttonArray, legendType, legendsMap, typeTitle, nameArray, currentDisplayed));
 
         buttonArray[0].addActionListener(new CharacterSelectButtonActionListener(currentDisplayed, 0, player1, player2, frame, 
-            hasPopupOpened, this));
+            hasPopupOpened, this, legendsMap, legendType));
         buttonArray[1].addActionListener(new CharacterSelectButtonActionListener(currentDisplayed, 1, player1, player2, frame, 
-            hasPopupOpened, this));
+            hasPopupOpened, this, legendsMap, legendType));
         buttonArray[2].addActionListener(new CharacterSelectButtonActionListener(currentDisplayed, 2, player1, player2, frame, 
-            hasPopupOpened, this));
+            hasPopupOpened, this, legendsMap, legendType));
 
         add(leftButton);
         add(rightButton);
@@ -127,6 +130,15 @@ public class CharacterSelectPanel extends ParentPanel {
             }
             
             legendsMap.get(legendType.get(count)).add(legendList.get(a));
+        }
+    }
+
+    public void setToStartTypeList() {
+        while (!legendType.get(0).equals("Outer Gods")) {
+            String temp = legendType.remove(0);
+            legendType.add(temp);
+
+            System.out.println(legendType);
         }
     }
 

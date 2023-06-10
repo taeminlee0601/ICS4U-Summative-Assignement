@@ -1,9 +1,9 @@
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class CharacterSelectButtonActionListener implements ActionListener {
     private Legends[] currentDisplayed;
@@ -14,6 +14,8 @@ public class CharacterSelectButtonActionListener implements ActionListener {
     public boolean[] hasPopupOpened;
     private int response = 0;
     private CharacterSelectPanel currentPanel;
+    private HashMap<String, ArrayList<Legends>> legendsMap;
+    private ArrayList<String> legendType;
 
     /**
      * Sets the current displayed characters and sets which character is displayed on button
@@ -21,7 +23,8 @@ public class CharacterSelectButtonActionListener implements ActionListener {
      * @param index
      */
     public CharacterSelectButtonActionListener(Legends[] currentDisplayed, int index, ArrayList<Legends> player1, 
-            ArrayList<Legends> player2, GameFrame frame, boolean[] hasPopupOpened, CharacterSelectPanel currentPanel) {
+            ArrayList<Legends> player2, GameFrame frame, boolean[] hasPopupOpened, CharacterSelectPanel currentPanel,
+            HashMap<String, ArrayList<Legends>> legendsMap, ArrayList<String> legendType) {
         this.currentDisplayed = currentDisplayed;
         this.index = index;
         this.player1 = player1;
@@ -29,6 +32,8 @@ public class CharacterSelectButtonActionListener implements ActionListener {
         this.frame = frame;
         this.hasPopupOpened = hasPopupOpened;
         this.currentPanel = currentPanel;
+        this.legendsMap = legendsMap;
+        this.legendType = legendType;
     }
 
     public void printPicks() {
@@ -36,7 +41,7 @@ public class CharacterSelectButtonActionListener implements ActionListener {
         System.out.println("Player 1");
 
         for (int a = 0; a < player1.size(); a++ ) {
-            System.out.println(player1.get(a).getName());
+            System.out.println(player1.get(a) + " " + player1.get(a).getName());
         }
 
         System.out.println();
@@ -44,7 +49,7 @@ public class CharacterSelectButtonActionListener implements ActionListener {
         System.out.println("Player 2");
 
         for (int a = 0; a < player2.size(); a++ ) {
-            System.out.println(player2.get(a).getName());
+            System.out.println(player2.get(a) + " " + player2.get(a).getName());
         }
 
         System.out.println();
@@ -52,6 +57,8 @@ public class CharacterSelectButtonActionListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        printPicks();
+
         if (player1.size() < 3) {
             if (!player1.contains(currentDisplayed[index])) {
                 player1.add(currentDisplayed[index]);
@@ -91,16 +98,16 @@ public class CharacterSelectButtonActionListener implements ActionListener {
 
                 JOptionPane.showMessageDialog(frame, "Player 1: Choose 3 characters by clicking on the Character's image");
             } else {
+                printPicks();
+
                 JOptionPane.showMessageDialog(frame, "Player 2: Choose 3 characters by clicking on the character's image");
             }
 
             return;
         }
 
-        
-
         if (player2.size() < 3) {
-            if (!player2.contains(currentDisplayed[index]) && !player1.contains(currentDisplayed[index])) {
+            if (!player1.contains(currentDisplayed[index]) && !player2.contains(currentDisplayed[index])) {
                 player2.add(currentDisplayed[index]);
             } else {
                 JOptionPane.showMessageDialog(frame, "You cannot select the same legend twice!");
@@ -114,7 +121,7 @@ public class CharacterSelectButtonActionListener implements ActionListener {
             hasPopupOpened[0] = true;
 
             if (response == JOptionPane.NO_OPTION) {
-                CharacterSelectPanel selectPanel = new CharacterSelectPanel(player1, hasPopupOpened);
+                CharacterSelectPanel selectPanel = new CharacterSelectPanel(player1, hasPopupOpened, legendsMap, legendType);
 
                 // Initializes the settings of the next panel
                 // Sets the main frame
