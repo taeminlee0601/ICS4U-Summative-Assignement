@@ -33,6 +33,8 @@ public class PlayButtonActionListener implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         // Initializes the settings of the next panel
+        // Sets the main frame
+        selectPanel.setFrame(frame);
         // Sets the backgroundFile of the character select panel
         selectPanel.setBackgroundFile(new File("assets/CharacterSelection.jpg"));
         // Sets the font file of the character select panel
@@ -46,7 +48,7 @@ public class PlayButtonActionListener implements ActionListener {
         // Adds the character select panel to the frame
         frame.add(selectPanel);
 
-        JOptionPane.showMessageDialog(frame, "Player 1 choose 3 characters by clicking on the Character's image");
+        JOptionPane.showMessageDialog(frame, "Player 1: Choose 3 characters by clicking on the Character's image");
     }
     
 }

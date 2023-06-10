@@ -4,7 +4,6 @@ import java.awt.*;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Set;
 
 public class CharacterSelectPanel extends ParentPanel {
     private JButton leftButton = new JButton();
@@ -12,13 +11,25 @@ public class CharacterSelectPanel extends ParentPanel {
     private JButton[] buttonArray = new JButton[3];
     private JLabel typeTitle = new JLabel();
     private JLabel[] nameArray = new JLabel[3];
-    private JLabel[] descriptionArray = new JLabel[3];
     private Legends[] currentDisplayed = new Legends[3];
     private HashMap<String, ArrayList<Legends>> legendsMap = new HashMap<String, ArrayList<Legends>>();
     private ArrayList<String> legendType = new ArrayList<String>();
+    private ArrayList<Legends> player1 = new ArrayList<Legends>();
+    private ArrayList<Legends> player2 = new ArrayList<Legends>();
+    private boolean[] hasPopupOpened = {false};
     
     public CharacterSelectPanel() {
         setCharacterHashMap();
+    }
+
+    public CharacterSelectPanel(ArrayList<Legends> player1, boolean[] hasPopupOpened, HashMap<String,ArrayList<Legends>> legendsMap,
+            ArrayList<String> legendsType) {
+        this.player1 = player1;
+        this.hasPopupOpened = hasPopupOpened;
+        this.legendsMap = legendsMap;
+        this.legendType = legendsType;
+
+        setToStartTypeList();
     }
 
     /**
@@ -51,8 +62,6 @@ public class CharacterSelectPanel extends ParentPanel {
             nameArray[a].setText(currentDisplayed[a].getName());
             nameArray[a].setHorizontalAlignment(SwingConstants.CENTER);
             nameArray[a].setBounds(75+(a*253), 375, 228, 100);
-
-            
         }
 
         typeTitle.setFont(customFont);
@@ -78,8 +87,15 @@ public class CharacterSelectPanel extends ParentPanel {
         rightButton.setBounds(835, 0, 50, 600);
         rightButton.setForeground(Color.WHITE);
 
-        leftButton.addActionListener(new SelectLeftButtonActionListener(buttonArray, legendType, legendsMap, typeTitle, nameArray));
-        rightButton.addActionListener(new SelectRightButtonActionListener(buttonArray, legendType, legendsMap, typeTitle, nameArray));
+        leftButton.addActionListener(new SelectLeftButtonActionListener(buttonArray, legendType, legendsMap, typeTitle, nameArray, currentDisplayed));
+        rightButton.addActionListener(new SelectRightButtonActionListener(buttonArray, legendType, legendsMap, typeTitle, nameArray, currentDisplayed));
+
+        buttonArray[0].addActionListener(new CharacterSelectButtonActionListener(currentDisplayed, 0, player1, player2, frame, 
+            hasPopupOpened, this, legendsMap, legendType));
+        buttonArray[1].addActionListener(new CharacterSelectButtonActionListener(currentDisplayed, 1, player1, player2, frame, 
+            hasPopupOpened, this, legendsMap, legendType));
+        buttonArray[2].addActionListener(new CharacterSelectButtonActionListener(currentDisplayed, 2, player1, player2, frame, 
+            hasPopupOpened, this, legendsMap, legendType));
 
         add(leftButton);
         add(rightButton);
@@ -114,6 +130,15 @@ public class CharacterSelectPanel extends ParentPanel {
             }
             
             legendsMap.get(legendType.get(count)).add(legendList.get(a));
+        }
+    }
+
+    public void setToStartTypeList() {
+        while (!legendType.get(0).equals("Outer Gods")) {
+            String temp = legendType.remove(0);
+            legendType.add(temp);
+
+            System.out.println(legendType);
         }
     }
 
