@@ -20,10 +20,10 @@ public class App
 
         Stats anubisStat = new Stats (750,130,95,80);
         Stats raStat = new Stats (650,120,105,70);
-        Stats horusStat = new Stats (700,115,100,85);
+        Stats horusStat = new Stats (700,115,115,85);
 
-        Stats zeusStat = new Stats (900,90,115,100);
-        Stats posidionStat = new Stats (1000,85,95,95);
+        Stats zeusStat = new Stats (900,90,125,100);
+        Stats posidionStat = new Stats (1000,85,75,95);
         Stats hadesStat = new Stats (850,100,120,90);
 
         Move yogMove1= new Move("Eldritch Grasp",150,80);
