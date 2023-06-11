@@ -276,61 +276,141 @@ public class App
     
     public static void game(Player player1, Player player2)
     {
-        boolean turn = true;
+        boolean turn1 = true;
+        boolean turn2 = true;
         Scanner input = new Scanner(System.in);
         int countBuff1 = 0;
-        
-        while (turn) 
+        int countBuff2 =0;
+        Legends currentLegendPlayer1 = player1.getCharacter(0);
+        Legends currentLegendPlayer2 = player2.getCharacter(0);
+        while(hasAliveLegends(player1)&&hasAliveLegends(player2))
         {
-            Legends currentLegendPlayer1 = player1.getCharacter(0);
-            Legends currentLegendPlayer2 = player2.getCharacter(0);
-            
-
-            System.out.println("It is Player 1's turn. Choose your action: (attack opponent[1], buff yourself [2], or swap legend [3])");
-            int action = input.nextInt();
-            System.out.println();
-
-            
-            if (action==1)
+            while (turn1) 
             {
-                if(Stats.checkSpeed(currentLegendPlayer1, currentLegendPlayer2))
+                turn2=true;
+                if(isCurrentLegendAlive(currentLegendPlayer1))
                 {
-                    System.out.println("Player 1 hits first!");
-                    attackPlayer2(currentLegendPlayer1.getMoveset(), currentLegendPlayer1, currentLegendPlayer2);
+                    System.out.println("It is " + currentLegendPlayer1.getName()+ "'s turn. Choose your action: (attack opponent[1], buff yourself [2], or swap legend [3])");
+                    int action = input.nextInt();
+                    System.out.println();
+                         
+                    if (action==1)
+                    {
+                        if(Stats.checkSpeed(currentLegendPlayer1, currentLegendPlayer2))
+                        {
+                            System.out.println("Player 1 hits first!");
+                            System.out.println();
+                            attackPlayer2(currentLegendPlayer1.getMoveset(), currentLegendPlayer1, currentLegendPlayer2);
+                        }
+                        else
+                        {
+                            System.out.println("Player 1 hits later because Player 2 is faster!");
+                            System.out.println();
+                        }
+                        turn1=false;
+                    }
+
+                    else if(action==2)
+                    {
+                        if(countBuff1<=5)
+                        {
+                            Move.buff(currentLegendPlayer1);
+                            countBuff1++;
+                        }
+                        else
+                        {
+                            System.out.println("You have exceeeded the maximum buff amount!");
+                            System.out.println();
+                        }
+                        turn1=false;
+                    }
+
+                    else if (action==3)
+                    {
+                        Legends.swapLegend(player1,currentLegendPlayer1);
+                        turn1=false;
+                    }
+                    
+                    else
+                    {
+                        System.out.println("Invalid input, try again.");
+                        System.out.println();
+                    }
                 }
                 else
                 {
-                    System.out.println("Player 1 hits later because Player 2 is faster!");
+                    swapToAliveLegend(player1);
                 }
-                // turn=false;
+                
             }
-
-            else if(action==2)
+            while (turn2) 
             {
-                if(countBuff1<=5)
+                turn1=true;
+                if(isCurrentLegendAlive(currentLegendPlayer2))
                 {
-                    Move.buff(currentLegendPlayer1);
-                    countBuff1++;
+                    System.out.println("It is " + currentLegendPlayer2.getName()+ "'s turn. Choose your action: (attack opponent[1], buff yourself [2], or swap legend [3])");
+                    int action = input.nextInt();
+                    System.out.println();
+                    
+                    if (action==1)
+                    {
+                        if(Stats.checkSpeed(currentLegendPlayer2,currentLegendPlayer1))
+                        {
+                            System.out.println("Player 2 hits first!");
+                            System.out.println();
+                            attackPlayer2(currentLegendPlayer2.getMoveset(), currentLegendPlayer2, currentLegendPlayer1);
+                        }
+                        else
+                        {
+                            System.out.println("Player 2 hits later because Player 1 is faster!");
+                            System.out.println();
+                        }
+                        turn2=false;
+                    }
+
+                    else if(action==2)
+                    {
+                        if(countBuff2<=5)
+                        {
+                            Move.buff(currentLegendPlayer2);
+                            countBuff2++;
+                        }
+                        else
+                        {
+                            System.out.println("You have exceeeded the maximum buff amount!");
+                            System.out.println();
+                        }
+                        turn2=false;
+                    }
+
+                    else if (action==3)
+                    {
+                        Legends.swapLegend(player2,currentLegendPlayer2);
+                        turn2=false;
+                    }
+                    else
+                    {
+                        System.out.println("Invalid input, try again.");
+                        System.out.println();
+                    }
                 }
                 else
                 {
-                    System.out.println("You have exceeeded the maximum buff amount!");
-                }
-                // turn=false;
-            }
-
-            else if (action==3)
-            {
-                Legends.swapLegend(player1,currentLegendPlayer1);
-                // turn=false;
-            }
-            
-            else
-            {
-                System.out.println("Invalid input, try again.");
+                    swapToAliveLegend(player2);
+                }    
             }
         }
-        
+
+        if(hasAliveLegends(player1)==false)
+        {
+            System.out.println("Game over! Player 2 wins!");
+            System.out.println("HAHA PLAYER 1 YOU SUCK HAHAHA");
+        }
+        else if (hasAliveLegends(player2)==false)
+        {
+            System.out.println("Game over! Player 1 wins!");
+            System.out.println("HAHA PLAYER 2 YOU SUCK HAHAHA");
+        }
     }
 
     public static void showCharacterList(ArrayList<Legends> characterList)
@@ -384,7 +464,6 @@ public class App
 
     public static void attackPlayer2(ArrayList<Move> moveset,Legends legend, Legends otherLegend)
     {
-
         Scanner input = new Scanner(System.in);
         System.out.println("The current hp of Player 2 legend is " + otherLegend.getStats().getHP());
         System.out.println("The current attack of Player 2 legend is " + otherLegend.getStats().getAttack());
@@ -482,8 +561,56 @@ public class App
         System.out.println("The updated defense of Player 1 legend is " + otherLegend.getStats().getDefense());
     }
 
+    public static boolean hasAliveLegends(Player player)
+    {
+        int elimination = 0;
+        for(int i =0 ; i<player.getCharacter().length;i++)
+        {
+            if(player.getCharacter(i).getStats().getHP()<=0)
+            {
+                elimination++;
+            }
+        }
+        if(elimination==3)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
 
+    public static boolean isCurrentLegendAlive(Legends currentLegend)
+    {
+        if(currentLegend.getStats().getHP()<=0)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
 
+    public static void swapToAliveLegend(Player player)
+    {
+        if(isCurrentLegendAlive(player.getCharacter(1)))
+        {
+            player.setCharacter(0, player.getCharacter(1));
+            player.setCharacter(1, player.getCharacter(0));
+        }
+        else if(isCurrentLegendAlive(player.getCharacter(2)))
+        {
+            player.setCharacter(0, player.getCharacter(2));
+            player.setCharacter(2, player.getCharacter(0));
+        }
+        else if(hasAliveLegends(player)==false)
+        {
+            System.out.println("You do not have any more legends that are alive!");
+        }
+    }
+    
 
 
 }

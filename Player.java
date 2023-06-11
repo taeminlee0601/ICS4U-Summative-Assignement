@@ -52,4 +52,6 @@ public class Player {
     {
         return character[0].getName() + "\n" + character[1].getName() + "\n" + character[2].getName() + "\n";
     }
+
+    
 }
