@@ -281,19 +281,19 @@ public class App
         Scanner input = new Scanner(System.in);
         int countBuff1 = 0;
         int countBuff2 =0;
-        Legends currentLegendPlayer1 = player1.getCharacter(0);
-        Legends currentLegendPlayer2 = player2.getCharacter(0);
-        ArrayList <Move> legendPlayer1Moveset= currentLegendPlayer1.getMoveset();
-        ArrayList <Move> legendPlayer2Moveset= currentLegendPlayer2.getMoveset();
         int move1 =0;
         int move2 = 0;
         while(hasAliveLegends(player1)&&hasAliveLegends(player2))
         {
+            Legends currentLegendPlayer1 = player1.getCharacter(0);
+            Legends currentLegendPlayer2 = player2.getCharacter(0);
+            ArrayList <Move> legendPlayer1Moveset= currentLegendPlayer1.getMoveset();
+            ArrayList <Move> legendPlayer2Moveset= currentLegendPlayer2.getMoveset();
             while (turn1) 
             {
                 if(isCurrentLegendAlive(currentLegendPlayer1))
                 {
-                    System.out.println("It is " + currentLegendPlayer1.getName()+ "'s turn. Choose your action: (attack opponent[1], buff yourself [2], or swap legend [3])");
+                    System.out.println("It is " + currentLegendPlayer1.getName()+ "'s turn. Choose your action (attack opponent[1], buff yourself [2], or swap legend [3]): ");
                     int action = input.nextInt();
                     input.nextLine();
                     System.out.println();
@@ -318,12 +318,14 @@ public class App
                                 if(move1==i+1)
                                 {
                                     System.out.println("Player 1 chooses to use " + legendPlayer1Moveset.get(i).getMoveName());
+                                    System.out.println();
                                     validInput=false;
                                     break;
                                 }
                                 else if(move1<1&&move1>3)
                                 {
                                     System.out.println("Invalid input! Please enter the correct move number.");
+                                    System.out.println();
                                 }
                             }
                             
@@ -358,8 +360,9 @@ public class App
                     }
                 }
                 else
-                {
+                {   System.out.println("Swapping to a legend that is alive...");
                     swapToAliveLegend(player1);
+                    turn1=false;
                 }
                 
             }
@@ -367,7 +370,7 @@ public class App
             {
                 if(isCurrentLegendAlive(currentLegendPlayer2))
                 {
-                    System.out.println("It is " + currentLegendPlayer2.getName()+ "'s turn. Choose your action: (attack opponent[1], buff yourself [2], or swap legend [3])");
+                    System.out.println("It is " + currentLegendPlayer2.getName()+ "'s turn. Choose your action (attack opponent[1], buff yourself [2], or swap legend [3]): ");
                     int action = input.nextInt();
                     System.out.println();
                     
@@ -387,17 +390,20 @@ public class App
                             Legends.showMoveset(legendPlayer2Moveset);
                             System.out.print("Choose your move (move 1 [1], move 2 [2], move 3 [3]): ");
                             move2=input.nextInt();
+                            System.out.println();
                             for(int i = 0; i<legendPlayer2Moveset.size();i++)
                             {
                                 if(move2==i+1)
                                 {
                                     System.out.println("Player 2 chooses to use " + legendPlayer2Moveset.get(i).getMoveName());
+                                    System.out.println();
                                     validInput=false;
                                     break;
                                 }
                                 else if (move2<1&&move2>3)
                                 {
                                     System.out.println("Invalid input! Please enter the correct move number.");
+                                    System.out.println();
                                 }
                             }
                         }
@@ -433,12 +439,15 @@ public class App
                 }
                 else
                 {
+                    System.out.println("Swapping to a legend that is alive...");
                     swapToAliveLegend(player2);
+                    turn2=false;
                 }    
             }
             if(Stats.checkSpeed(currentLegendPlayer1, currentLegendPlayer2))
             {
                 System.out.println(currentLegendPlayer1.getName()+" hits first! because " + currentLegendPlayer1.getName() + " 's speed is faster than " + currentLegendPlayer2.getName() + "'s speed.");
+                System.out.println();
                 attackPlayer2(move1, currentLegendPlayer1.getMoveset(), currentLegendPlayer1, currentLegendPlayer2);
                 attackPlayer1(move2, currentLegendPlayer2.getMoveset(), currentLegendPlayer1, currentLegendPlayer2);
                 turn1=true;
@@ -449,6 +458,7 @@ public class App
             else if (Stats.checkSpeed(currentLegendPlayer2, currentLegendPlayer1))
             {
                 System.out.println(currentLegendPlayer2.getName()+" hits first! because " + currentLegendPlayer2.getName() + " 's speed is faster than " + currentLegendPlayer1.getName() + "'s speed.");
+                System.out.println();
                 attackPlayer1(move2, currentLegendPlayer2.getMoveset(), currentLegendPlayer1, currentLegendPlayer2);
                 attackPlayer2(move1, currentLegendPlayer1.getMoveset(), currentLegendPlayer1, currentLegendPlayer2);
                 turn1=true;
@@ -461,11 +471,13 @@ public class App
         {
             System.out.println("Game over! Player 2 wins!");
             System.out.println("HAHA PLAYER 1 YOU SUCK HAHAHA");
+            System.out.println();
         }
         else if (hasAliveLegends(player2)==false)
         {
             System.out.println("Game over! Player 1 wins!");
             System.out.println("HAHA PLAYER 2 YOU SUCK HAHAHA");
+            System.out.println();
         }
     }
 
@@ -510,7 +522,6 @@ public class App
             }
 
             System.out.print("Invalid input! Please enter a valid legend name: ");
-        
         }
 
         return null;
@@ -528,11 +539,13 @@ public class App
                 otherLegend.getStats().setHP(newHP);
                 System.out.println("Your move hit!");
                 System.out.println("You delt " + Legends.calcDamage(i, legend,otherLegend) + " damage.");
+                System.out.println();
                 break;
             }
             else if(move==i+1&&Legends.accuracyCheck(moveset.get(i).getAccuracy())==false)
             {
                 System.out.println("Your move missed! Try again next time!");
+                System.out.println();
                 return;
             }
         }
@@ -541,6 +554,7 @@ public class App
         System.out.println("The updated attack of Player 2 legend is " + otherLegend.getStats().getAttack());
         System.out.println("The updated speed of Player 2 legend is " + otherLegend.getStats().getSpeed());
         System.out.println("The updated defense of Player 2 legend is " + otherLegend.getStats().getDefense());
+        System.out.println();
     }
 
     public static void attackPlayer1(int move, ArrayList<Move> moveset,Legends legend, Legends otherLegend)
@@ -549,23 +563,26 @@ public class App
         {
             if(move==i+1&&Legends.accuracyCheck(moveset.get(i).getAccuracy())==true)
             {
-                int newHP = otherLegend.getStats().getHP()-Legends.calcDamage(i, legend,otherLegend);
-                otherLegend.getStats().setHP(newHP);
+                int newHP = legend.getStats().getHP()-Legends.calcDamage(i, otherLegend,legend);
+                legend.getStats().setHP(newHP);
                 System.out.println("Your move hit!");
-                System.out.println("You delt " + Legends.calcDamage(i, legend,otherLegend) + " damage.");
+                System.out.println("You delt " + Legends.calcDamage(i, otherLegend,legend) + " damage.");
+                System.out.println();
                 break;
             }
             else if(move==i+1&&Legends.accuracyCheck(moveset.get(i).getAccuracy())==false)
             {
                 System.out.println("Your move missed! Try again next time!");
+                System.out.println();
                 return;
             }
         }
         System.out.println();
-        System.out.println("The updated hp of Player 1 legend is " + otherLegend.getStats().getHP());
-        System.out.println("The updated attack of Player 1 legend is " + otherLegend.getStats().getAttack());
-        System.out.println("The updated speed of Player 1 legend is " + otherLegend.getStats().getSpeed());
-        System.out.println("The updated defense of Player 1 legend is " + otherLegend.getStats().getDefense());
+        System.out.println("The updated hp of Player 1 legend is " + legend.getStats().getHP());
+        System.out.println("The updated attack of Player 1 legend is " + legend.getStats().getAttack());
+        System.out.println("The updated speed of Player 1 legend is " + legend.getStats().getSpeed());
+        System.out.println("The updated defense of Player 1 legend is " + legend.getStats().getDefense());
+        System.out.println();
     }
 
     public static boolean hasAliveLegends(Player player)
@@ -615,6 +632,7 @@ public class App
         else if(hasAliveLegends(player)==false)
         {
             System.out.println("You do not have any more legends that are alive!");
+            System.out.println();
         }
     }
 }

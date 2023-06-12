@@ -9,3 +9,5 @@ public class Main {
         GameFrame window = new GameFrame();
     }
 }
+
+//this can be iffy and not work for some, me(Nathan) on my personal pc for example
