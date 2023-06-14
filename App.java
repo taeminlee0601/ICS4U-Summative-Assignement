@@ -6,12 +6,11 @@ public class App
 
     public static void main(String[]args)
     {
-        //create stat objects for all 15 legends
-        Stats yogStat = new Stats(900,100,50,110);
-        Stats cthulhuStat = new Stats(1000,90,70,100);
-        Stats azathothStat = new Stats(900,110,40,90);
+        Stats yogStat = new Stats(900,100,50,150);
+        Stats cthulhuStat = new Stats(1000,90,70,140);
+        Stats azathothStat = new Stats(1500,110,40,170);
 
-        Stats rickStat = new Stats(750,80,90,100);
+        Stats rickStat = new Stats(750,60,90,100);
         Stats derpStat = new Stats(650,100,110,80);
         Stats godzillaStat = new Stats(950, 100, 100, 130);
 
@@ -26,7 +25,7 @@ public class App
         Stats zeusStat = new Stats (900,90,125,100);
         Stats posidionStat = new Stats (1000,85,75,95);
         Stats hadesStat = new Stats (850,100,120,90);
-//creates 3 move and puts it into arraylist for movesets
+
         Move yogMove1= new Move("Eldritch Grasp",150,80);
         Move yogMove2 = new Move("Unfathomable Presence",180,60);
         Move yogMove3 = new Move("Chaos Rift",120,90);
@@ -128,9 +127,9 @@ public class App
         Move hadesMove3 = new Move("Reckless Attack",170,50);
         
         ArrayList<Move> hadesMoveset = Move.addMoveToMoveset(hadesMove1, hadesMove2, hadesMove3);
-        //arraylist to store the legends and there description
+        
         ArrayList<Legends> characterList = new ArrayList<Legends>();
-        //legends with there name description and type 
+
         Legends yog = new Legends("Yog-Sothoth","Cosmic entitiy who trasends space and time",yogMoveset,yogStat,"Outer");
 
         characterList.add(yog);
@@ -143,7 +142,7 @@ public class App
 
         characterList.add(azathoth);
 
-        Legends rick = new Legends("Rick Astley","Never gonna give you up never gonna let you down never gonna run around and desert you",rickMoveset,rickStat,"Meme");
+        Legends rick = new Legends("Rick Asley","Never gonna give you up never gonna let you down never gonna run around and desert you",rickMoveset,rickStat,"Meme");
 
         characterList.add(rick);
 
@@ -302,9 +301,9 @@ public class App
                     if (action==1)
                     {
                         System.out.println("The current hp of Player 2 legend is " + currentLegendPlayer2.getStats().getHP());
-                        // System.out.println("The current attack of Player 2 legend is " + currentLegendPlayer2.getStats().getAttack());
-                        // System.out.println("The current speed of Player 2 legend is " + currentLegendPlayer2.getStats().getSpeed());
-                        // System.out.println("The current defense of Player 2 legend is " + currentLegendPlayer2.getStats().getDefense());
+                        System.out.println("The current attack of Player 2 legend is " + currentLegendPlayer2.getStats().getAttack());
+                        System.out.println("The current speed of Player 2 legend is " + currentLegendPlayer2.getStats().getSpeed());
+                        System.out.println("The current defense of Player 2 legend is " + currentLegendPlayer2.getStats().getDefense());
                         System.out.println();
                         boolean validInput=true;
                         while(validInput)
@@ -379,9 +378,9 @@ public class App
                     {
                         
                         System.out.println("The current hp of Player 1 legend is " + currentLegendPlayer1.getStats().getHP());
-                        // System.out.println("The current attack of Player 1 legend is " + currentLegendPlayer1.getStats().getAttack());
-                        // System.out.println("The current speed of Player 1 legend is " + currentLegendPlayer1.getStats().getSpeed());
-                        // System.out.println("The current defense of Player 1 legend is " + currentLegendPlayer1.getStats().getDefense());
+                        System.out.println("The current attack of Player 1 legend is " + currentLegendPlayer1.getStats().getAttack());
+                        System.out.println("The current speed of Player 1 legend is " + currentLegendPlayer1.getStats().getSpeed());
+                        System.out.println("The current defense of Player 1 legend is " + currentLegendPlayer1.getStats().getDefense());
                         System.out.println();
                         boolean validInput=true;
                         while(validInput)
@@ -536,13 +535,11 @@ public class App
         {
             if(move==i+1&&Legends.accuracyCheck(moveset.get(i).getAccuracy())==true)
             {
-
-                
                 int newHP = otherLegend.getStats().getHP()-Legends.calcDamage(i, legend,otherLegend);
-                if(newHP <= 0)
-                    {
-                        newHP = 0;
-                    }
+                if(newHP<0)
+                {
+                    newHP=0;
+                }
                 otherLegend.getStats().setHP(newHP);
                 System.out.println("Your move hit!");
                 System.out.println("You delt " + Legends.calcDamage(i, legend,otherLegend) + " damage.");
@@ -558,9 +555,9 @@ public class App
         }
         System.out.println();
         System.out.println("The updated hp of Player 2 legend is " + otherLegend.getStats().getHP());
-        // System.out.println("The updated attack of Player 2 legend is " + otherLegend.getStats().getAttack());
-        // System.out.println("The updated speed of Player 2 legend is " + otherLegend.getStats().getSpeed());
-        // System.out.println("The updated defense of Player 2 legend is " + otherLegend.getStats().getDefense());
+        System.out.println("The updated attack of Player 2 legend is " + otherLegend.getStats().getAttack());
+        System.out.println("The updated speed of Player 2 legend is " + otherLegend.getStats().getSpeed());
+        System.out.println("The updated defense of Player 2 legend is " + otherLegend.getStats().getDefense());
         System.out.println();
     }
 
@@ -571,12 +568,11 @@ public class App
             if(move==i+1&&Legends.accuracyCheck(moveset.get(i).getAccuracy())==true)
             {
                 int newHP = legend.getStats().getHP()-Legends.calcDamage(i, otherLegend,legend);
-                if(newHP <= 0)
-                    {
-                        newHP = 0;
-                    }
+                if(newHP<0)
+                {
+                    newHP=0;
+                }
                 legend.getStats().setHP(newHP);
-
                 System.out.println("Your move hit!");
                 System.out.println("You delt " + Legends.calcDamage(i, otherLegend,legend) + " damage.");
                 System.out.println();
@@ -591,9 +587,9 @@ public class App
         }
         System.out.println();
         System.out.println("The updated hp of Player 1 legend is " + legend.getStats().getHP());
-        // System.out.println("The updated attack of Player 1 legend is " + legend.getStats().getAttack());
-        // System.out.println("The updated speed of Player 1 legend is " + legend.getStats().getSpeed());
-        // System.out.println("The updated defense of Player 1 legend is " + legend.getStats().getDefense());
+        System.out.println("The updated attack of Player 1 legend is " + legend.getStats().getAttack());
+        System.out.println("The updated speed of Player 1 legend is " + legend.getStats().getSpeed());
+        System.out.println("The updated defense of Player 1 legend is " + legend.getStats().getDefense());
         System.out.println();
     }
 
@@ -628,18 +624,20 @@ public class App
             return true;
         }
     }
-
+    //testing
     public static void swapToAliveLegend(Player player)
     {
         if(isCurrentLegendAlive(player.getCharacter(1)))
         {
+            Legends temp = player.getCharacter(0);
             player.setCharacter(0, player.getCharacter(1));
-            player.setCharacter(1, player.getCharacter(0));
+            player.setCharacter(1, temp);
         }
         else if(isCurrentLegendAlive(player.getCharacter(2)))
         {
+            Legends temp = player.getCharacter(0);
             player.setCharacter(0, player.getCharacter(2));
-            player.setCharacter(2, player.getCharacter(0));
+            player.setCharacter(2, temp);
         }
         else if(hasAliveLegends(player)==false)
         {
