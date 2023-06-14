@@ -1,10 +1,13 @@
+//  importing packages
 import java.util.ArrayList;
 import java.io.File;
 import java.util.Random;
 import java.util.Scanner;
 
+//  Legends class
 public class Legends
 {
+    //  Instance variables
     private String name;
     private String description;
     private ArrayList<Move> movesets;
@@ -12,7 +15,7 @@ public class Legends
     private String type;
     private File imageFile;
     
-    
+    //  Legends constructor
     public Legends(String name, String description, ArrayList<Move> movesets, Stats statistic,String type)
     {
         this.name=name;
@@ -22,25 +25,40 @@ public class Legends
         this.type=type;
     }
 
+    //  getter method for the arraylist moveset
     public ArrayList<Move> getMoveset()
     {
         return movesets;
     }
 
+    //  getter method for Stats object statistic
     public Stats getStats()
     {
         return statistic;
     }
 
+    //  getter method for String name
     public String getName()
     {
         return name;
     }
 
+    //  getter method for String description
     public String description()
     {
         return description;
     }
+
+    /**
+     * Calculates the damage a move will do, using the formula: power of move*attack of legend/defense of otherLegend
+     * Precondition 1: method must take int whichMove, Legends legend, and Legends otherLegend
+     * Precondition 2: effectiveness on legend types, refer to game guide for more details
+     * Postcondition: returns an int that indicates the dmg the move will do
+     * @param whichMove - String object to refer to which move the player picked
+     * @param legend - Legends object to refer to the player legend
+     * @param otherLegend - Legends object to refer to the opponent legend
+     * @return damageDone - an int that indicates the dmg the move will do
+     */
 
     public static int calcDamage (int whichMove, Legends legend, Legends otherLegend)
     {
@@ -86,13 +104,24 @@ public class Legends
         return damageDone;
     }
 
+    /**
+     * getter method that returns the String type
+     * Precondition: String type has to exist
+     * Postcondition: returns the String type
+     * @return type - String object that refers to the legend type
+     */
     public String getType()
     {
 
         return type;
 
     }
-
+    /**
+     * void method that shows the list of the moves in the moveset
+     * Precondition: method must take ArrayList<move> moveset
+     * Postcondition: prints out the list of moves in the terminal
+     * @param moveset - ArrayList<move> object to refer which moveset the method is accessing
+     */
     public static void showMoveset(ArrayList<Move> moveset)
     {
         System.out.println("Move 1 name: "+ moveset.get(0).getMoveName());
@@ -114,7 +143,14 @@ public class Legends
         System.out.println();
 
     }
-
+    /**
+     * boolean method that checks if the move passes the accuracy check
+     * Precondition 1: method must take int accuracy
+     * Precondition 2: if the random number is less or equal to the accuracy of the move, it passes true, otherwise false
+     * Postcondition: return true or false depending on the condition
+     * @param accuracy - int object that refers to the move's accuracy
+     * @return return true or false depending on the condition
+     */
     public static boolean accuracyCheck (int accuracy)
     {
         Random random = new Random();
@@ -131,6 +167,11 @@ public class Legends
         }
     }
 
+    /**
+     * setter method that sets the File imageFile
+     * 
+     * @param imageFile
+     */
     public void setImageFile(File imageFile) {
         this.imageFile = imageFile;
     }
