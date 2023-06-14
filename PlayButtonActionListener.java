@@ -28,6 +28,7 @@ public class PlayButtonActionListener implements ActionListener {
 
     /**
      * This method will check if the button is pressed and if yes will go to the next panel
+     * Implements ActionListener
      */
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -48,6 +49,7 @@ public class PlayButtonActionListener implements ActionListener {
         // Adds the character select panel to the frame
         frame.add(selectPanel);
 
+        // Show a option pane telling the player what to do
         JOptionPane.showMessageDialog(frame, "Player 1: Choose 3 characters by clicking on the Character's image");
     }
     
