@@ -3,7 +3,10 @@ import java.util.Scanner;
 
 public class App
 {
-
+    /**
+     * Creates stat objects for all legends to later pull from
+     * @param args
+     */
     public static void main(String[]args)
     {
         Stats yogStat = new Stats(900,100,50,150);
@@ -25,7 +28,7 @@ public class App
         Stats zeusStat = new Stats (900,90,125,100);
         Stats posidionStat = new Stats (1000,85,75,95);
         Stats hadesStat = new Stats (850,100,120,90);
-
+        //  Creates 3 move for each legends and add it to the arraylist Moveset
         Move yogMove1= new Move("Eldritch Grasp",150,80);
         Move yogMove2 = new Move("Unfathomable Presence",180,60);
         Move yogMove3 = new Move("Chaos Rift",120,90);
@@ -129,7 +132,7 @@ public class App
         ArrayList<Move> hadesMoveset = Move.addMoveToMoveset(hadesMove1, hadesMove2, hadesMove3);
         
         ArrayList<Legends> characterList = new ArrayList<Legends>();
-
+        //  Adds Legends with there description and type to arraylist Legends
         Legends yog = new Legends("Yog-Sothoth","Cosmic entitiy who trasends space and time",yogMoveset,yogStat,"Outer");
 
         characterList.add(yog);
@@ -189,10 +192,10 @@ public class App
         Legends hades = new Legends("Hades","God of the underworld owner of the domain of the dead",hadesMoveset,hadesStat,"Olympus");
 
         characterList.add(hades);
-
+        //  Creates 2 playable people for pass and play
         Player player1 = new Player();
         Player player2 = new Player();
-
+        //  Ask's player to choose one of the 15 legends and removed picked legend from list when they picked
         System.out.println("Player 1 choose Legends:");
         showCharacterList(characterList);
         System.out.println();
@@ -285,21 +288,25 @@ public class App
         int move2 = 0;
         while(hasAliveLegends(player1)&&hasAliveLegends(player2))
         {
+            //  Gets the legends that the player picks and there movesets
             Legends currentLegendPlayer1 = player1.getCharacter(0);
             Legends currentLegendPlayer2 = player2.getCharacter(0);
             ArrayList <Move> legendPlayer1Moveset= currentLegendPlayer1.getMoveset();
             ArrayList <Move> legendPlayer2Moveset= currentLegendPlayer2.getMoveset();
             while (turn1) 
             {
+                //  checks if current legend is alive to see if player cant actually do there turn/move
                 if(isCurrentLegendAlive(currentLegendPlayer1))
                 {
+                    //  ask player to choose between attacking buffing the legend or swapping to diffrent legend
                     System.out.println("It is " + currentLegendPlayer1.getName()+ "'s turn. Choose your action (attack opponent[1], buff yourself [2], or swap legend [3]): ");
                     int action = input.nextInt();
                     input.nextLine();
                     System.out.println();
-                         
+                        
                     if (action==1)
                     {
+                        //  Show the stats of player 2 whenver they take there turn
                         System.out.println("The current hp of Player 2 legend is " + currentLegendPlayer2.getStats().getHP());
                         System.out.println("The current attack of Player 2 legend is " + currentLegendPlayer2.getStats().getAttack());
                         System.out.println("The current speed of Player 2 legend is " + currentLegendPlayer2.getStats().getSpeed());
@@ -308,6 +315,7 @@ public class App
                         boolean validInput=true;
                         while(validInput)
                         {
+                            //  Show the player the move they can select and give them number options for each move
                             System.out.println("The following are the moves you can select:");
                             System.out.println();
                             Legends.showMoveset(legendPlayer1Moveset);
@@ -317,6 +325,7 @@ public class App
                             {
                                 if(move1==i+1)
                                 {
+                                    //Show what move player 1 chose and gets the movename
                                     System.out.println("Player 1 chooses to use " + legendPlayer1Moveset.get(i).getMoveName());
                                     System.out.println();
                                     validInput=false;
@@ -336,17 +345,22 @@ public class App
                     {
                         if(countBuff1<=5)
                         {
+                            /* 
+                            if player instead chooses to buff it adds a count to countBuff1
+                            whenever it exceed 5 the player can no longer buff there legend
+                            */  
                             Move.buff(currentLegendPlayer1);
                             countBuff1++;
                         }
                         else
                         {
+                            //tells player they can no longer buff
                             System.out.println("You have exceeeded the maximum buff amount!");
                             System.out.println();
                         }
                         turn1=false;
                     }
-
+                    //  run this block of code if player chose the 3rd option
                     else if (action==3)
                     {
                         Legends.swapLegend(player1,currentLegendPlayer1);
@@ -360,7 +374,9 @@ public class App
                     }
                 }
                 else
-                {   System.out.println("Swapping to a legend that is alive...");
+                {   
+                    //  automatically swaps to diffrent legend when your current legend dies
+                    System.out.println("Swapping to a legend that is alive...");
                     swapToAliveLegend(player1);
                     turn1=false;
                 }
@@ -368,6 +384,7 @@ public class App
             }
             while (turn2) 
             {
+                //  Same code as above from line 291-380 buf for CurrentLegendPlayer2
                 if(isCurrentLegendAlive(currentLegendPlayer2))
                 {
                     System.out.println("It is " + currentLegendPlayer2.getName()+ "'s turn. Choose your action (attack opponent[1], buff yourself [2], or swap legend [3]): ");
@@ -444,6 +461,7 @@ public class App
                     turn2=false;
                 }    
             }
+            //  Checks both of the current legends speed stats to decide who will attack first 
             if(Stats.checkSpeed(currentLegendPlayer1, currentLegendPlayer2))
             {
                 System.out.println(currentLegendPlayer1.getName()+" hits first! because " + currentLegendPlayer1.getName() + " 's speed is faster than " + currentLegendPlayer2.getName() + "'s speed.");
@@ -466,13 +484,14 @@ public class App
             }
 
         }
-
+        //  Checks to see if player 1 has any alive legends if not decalres player 2 the winner
         if(hasAliveLegends(player1)==false)
         {
             System.out.println("Game over! Player 2 wins!");
             System.out.println("HAHA PLAYER 1 YOU SUCK HAHAHA");
             System.out.println();
         }
+        //  checks to see if player 2 has any alive legends if not decalres player 1 the winner
         else if (hasAliveLegends(player2)==false)
         {
             System.out.println("Game over! Player 1 wins!");
@@ -481,6 +500,11 @@ public class App
         }
     }
 
+    /**
+     * shows all the legends that the player can pick 
+     * 
+     * @param characterList
+     */
     public static void showCharacterList(ArrayList<Legends> characterList)
     {
         for(int i = 0 ;i<characterList.size();i++)
@@ -624,7 +648,10 @@ public class App
             return true;
         }
     }
-    //testing
+    /**
+     * Swap players legend out whenever there current legend goes down to 0 hp
+     * @param player
+     */
     public static void swapToAliveLegend(Player player)
     {
         if(isCurrentLegendAlive(player.getCharacter(1)))
