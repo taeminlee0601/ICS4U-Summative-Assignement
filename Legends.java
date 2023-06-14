@@ -149,13 +149,13 @@ public class Legends
             System.out.println();
             System.out.println("Player's current legend is " + legend.getName());
             System.out.println();
-            System.out.print("Who do you want to switch to? ");
-            String who = input.next();
+            System.out.print("Who do you want to switch to? Enter 1, 2, or 3 to select: ");
+            int who = input.nextInt();
             System.out.println();
             Legends desiredLegend = null;
             
             for (int i = 0; i < player.getCharacter().length; i++) {
-                if (who.equals(player.getCharacter(i).getName())) {
+                if (who==i+1&&App.isCurrentLegendAlive(player.getCharacter(i))) {
                     validInput=false;
                     desiredLegend = player.getCharacter(i);
                     int legendIndex = Player.getIndiceInCharacter(player.getCharacter(), legend);
@@ -169,7 +169,7 @@ public class Legends
             }
             if(validInput)
             {
-                System.out.println("Invalid legend name. Please try again.");
+                System.out.println("The legend you chose is out of commission or you entered an invalid legend name. Please try again.");
             }
         }
 

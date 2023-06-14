@@ -43,9 +43,33 @@ public class Player {
 
     public static void showLegendListPlayer(Player player)
     {
-        System.out.println("1. " + player.getCharacter(0).getName());
-        System.out.println("2. " + player.getCharacter(1).getName());
-        System.out.println("3. " + player.getCharacter(2).getName());
+        System.out.print("1. " + player.getCharacter(0).getName() + " ");
+        if(App.isCurrentLegendAlive(player.getCharacter(0)))
+        {
+            System.out.println("[Alive]");
+        }
+        else if (App.isCurrentLegendAlive(player.getCharacter(0))==false)
+        {
+            System.out.println("[Eliminated]");
+        }
+        System.out.print("2. " + player.getCharacter(1).getName() + " ");
+        if(App.isCurrentLegendAlive(player.getCharacter(1)))
+        {
+            System.out.println("[Alive]");
+        }
+        else if (App.isCurrentLegendAlive(player.getCharacter(1))==false)
+        {
+            System.out.println("[Eliminated]");
+        }
+        System.out.print("3. " + player.getCharacter(2).getName() + " ");
+        if(App.isCurrentLegendAlive(player.getCharacter(2)))
+        {
+            System.out.println("[Alive]");
+        }
+        else if (App.isCurrentLegendAlive(player.getCharacter(2))==false)
+        {
+            System.out.println("[Eliminated]");
+        }
     }
 
     public String toString()

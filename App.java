@@ -536,6 +536,10 @@ public class App
             if(move==i+1&&Legends.accuracyCheck(moveset.get(i).getAccuracy())==true)
             {
                 int newHP = otherLegend.getStats().getHP()-Legends.calcDamage(i, legend,otherLegend);
+                if(newHP<0)
+                {
+                    newHP=0;
+                }
                 otherLegend.getStats().setHP(newHP);
                 System.out.println("Your move hit!");
                 System.out.println("You delt " + Legends.calcDamage(i, legend,otherLegend) + " damage.");
@@ -564,6 +568,10 @@ public class App
             if(move==i+1&&Legends.accuracyCheck(moveset.get(i).getAccuracy())==true)
             {
                 int newHP = legend.getStats().getHP()-Legends.calcDamage(i, otherLegend,legend);
+                if(newHP<0)
+                {
+                    newHP=0;
+                }
                 legend.getStats().setHP(newHP);
                 System.out.println("Your move hit!");
                 System.out.println("You delt " + Legends.calcDamage(i, otherLegend,legend) + " damage.");
@@ -621,13 +629,15 @@ public class App
     {
         if(isCurrentLegendAlive(player.getCharacter(1)))
         {
+            Legends temp = player.getCharacter(0);
             player.setCharacter(0, player.getCharacter(1));
-            player.setCharacter(1, player.getCharacter(0));
+            player.setCharacter(1, temp);
         }
         else if(isCurrentLegendAlive(player.getCharacter(2)))
         {
+            Legends temp = player.getCharacter(0);
             player.setCharacter(0, player.getCharacter(2));
-            player.setCharacter(2, player.getCharacter(0));
+            player.setCharacter(2, temp);
         }
         else if(hasAliveLegends(player)==false)
         {
