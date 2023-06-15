@@ -4,18 +4,31 @@ import java.io.File;
 import java.util.Random;
 import java.util.Scanner;
 
-//  Legends class
+
+/**
+ * The Legends class represents a legend in a game.
+ * Legends have a name, description, movesets, statistics, type, and an image file.
+ */
 public class Legends
 {
     //  Instance variables
-    private String name;
-    private String description;
-    private ArrayList<Move> movesets;
-    private Stats statistic;
-    private String type;
-    private File imageFile;
+    private String name; //  name of the legend
+    private String description; //  description of the legend
+    private ArrayList<Move> movesets; //  moveset of the legend (3 moves in a moveset)
+    private Stats statistic; //  stats of the legend
+    private String type; // type of the legend
+    private File imageFile; //  image file of the legend
     
-    //  Legends constructor
+    /**
+     * Constructs a Legends object with the specified name, description, movesets, statistics, and type.
+     * Precondition - Legends object must take a String name, String description, ArrayList<Move> movesets, Stats statistic, and String type
+     * Postcondition - Instance variables are initialized
+     * @param name - the name of the legend
+     * @param description - description of the legend
+     * @param movesets - moveset of the legend (3 moves in a moveset)
+     * @param statistic - stats of the legend
+     * @param type - type of the legend
+     */
     public Legends(String name, String description, ArrayList<Move> movesets, Stats statistic,String type)
     {
         this.name=name;
@@ -25,25 +38,45 @@ public class Legends
         this.type=type;
     }
 
-    //  getter method for the arraylist moveset
+    /**
+     * Returns the ArrayList<Move> movesets of a given Legends object
+     * Precondition: Legends object must be initialized
+     * Postcondition: Returns ArrayList<Move> movesets accessed from the Legends object
+     * @return movesets - movesets of the Legends object
+     */
     public ArrayList<Move> getMoveset()
     {
         return movesets;
     }
 
-    //  getter method for Stats object statistic
+    /**
+     * Returns the Stats statistic of a given Legends object
+     * Precondition: Legends object must be initialized
+     * Postcondition: Returns Stats statistic accessed from the Legends object
+     * @return statistic - stats pf the Legends object
+     */
     public Stats getStats()
     {
         return statistic;
     }
 
-    //  getter method for String name
+    /**
+     * Returns the ArrayList<Move> movesets of a given Legends object
+     * Precondition: Legends object must be initialized
+     * Postcondition: Returns String name accessed from the Legends object
+     * @return name - name of the Legends object
+     */
     public String getName()
     {
         return name;
     }
 
-    //  getter method for String description
+    /**
+     * Returns the String description of a given Legends object
+     * Precondition: Legends object must be initialized
+     * Postcondition: Returns String description accessed from the Legends object
+     * @return description - description of the Legends object
+     */
     public String description()
     {
         return description;
@@ -105,9 +138,9 @@ public class Legends
     }
 
     /**
-     * getter method that returns the String type
-     * Precondition: String type has to exist
-     * Postcondition: returns the String type
+     * Returns the String type of a given Legends object
+     * Precondition: 
+     * Postcondition: returns the String type accessed from Legends object
      * @return type - String object that refers to the legend type
      */
     public String getType()
@@ -169,17 +202,31 @@ public class Legends
 
     /**
      * setter method that sets the File imageFile
-     * 
-     * @param imageFile
+     * Precondition: legends object has to exist
+     * Postcondition: imageFile will be set to the new File object
+     * @param imageFile - new image file of the legends object you want to set
      */
     public void setImageFile(File imageFile) {
         this.imageFile = imageFile;
     }
 
+    /**
+     * Returns the File imageFile of a given Legends object
+     * Precondition: Legends object must be initialized
+     * Postcondition: return File imageFile accessed from Legends object
+     * @return imageFile - image file of the Legends object
+     */
     public File getImageFile() {
         return imageFile;
     }
 
+    /**
+     * Swaps the legend with the other two legends in your team
+     * Precondition: if the legend you are swapping to is eliminated, it will you to try again until you swap to a legend that is alive
+     * Postcondiion: swaps the positions of the current legend and the desired legend in the player'
+     * @param player - player object representing the team
+     * @param legend - the current legend that the player wants to swap
+     */
     public static void swapLegend(Player player,Legends legend)
     {   
         boolean validInput=true;
