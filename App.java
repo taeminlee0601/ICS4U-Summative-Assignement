@@ -14,7 +14,7 @@ public class App
         Stats azathothStat = new Stats(1500,110,40,170);
 
         Stats rickStat = new Stats(750,60,90,100);
-        Stats derpStat = new Stats(650,100,110,80);
+        Stats derpStat = new Stats(750,100,110,80);
         Stats godzillaStat = new Stats(950, 100, 100, 130);
 
         Stats odinStat = new Stats(900,80,70,50);
@@ -354,7 +354,7 @@ public class App
                         }
                         else
                         {
-                            //tells player they can no longer buff
+                            //  tells player they can no longer buff after they buff 5 times
                             System.out.println("You have exceeeded the maximum buff amount!");
                             System.out.println();
                         }
@@ -502,8 +502,9 @@ public class App
 
     /**
      * shows all the legends that the player can pick 
-     * 
-     * @param characterList
+     * Precondition charaters where already added to the ArrayList
+     * postcondition the names of the legends and shown on screen
+     * @param characterList The list of all the Legends
      */
     public static void showCharacterList(ArrayList<Legends> characterList)
     {
@@ -517,7 +518,13 @@ public class App
 
         }
     }
-
+    /**
+     * Removes legend from arraylist after they get picked by the player
+     * precondition CharacterList has Legends in it
+     * postcondition displays all the legends except the picked ones
+     * @param characterList The list of all the legends
+     * @param legend The legend that will get removed from the list
+     */
     public static void removeAlreadyPickedCharacterList(ArrayList<Legends> characterList,Legends legend)
     {
         for(int i = 0 ; i<characterList.size();i++)
@@ -529,7 +536,13 @@ public class App
         }
     }
 
-    //Improved Version, added check for invalid input that cause loop until it is correct
+    /**
+     * Lets user choose legends from characterList
+     * precondition characterList has legends in it
+     * post the chosen legends are returned if user miss types legends name null is returned instead
+     * @param characterList The list of the legends
+     * @return The chosen Legends 
+     */
     public static Legends chooseLegend(ArrayList<Legends> characterList) {
         Scanner input = new Scanner(System.in);
         String legend = "";
@@ -552,7 +565,15 @@ public class App
     }
 
     
-
+    /**
+     * Player 1 attacks player 2 with there selected move
+     * Precondition there is another legend to hit and player 1 has a legend that can hit
+     * postcondition attack is done and output is printed in terminal
+     * @param move Move selcted by player 1
+     * @param moveset List of avaliable move for player 1 to choose
+     * @param legend Current legend of player 1
+     * @param otherLegend Curerent legend of player 2
+     */
     public static void attackPlayer2(int move,ArrayList<Move> moveset,Legends legend, Legends otherLegend)
     {
         for(int i = 0 ; i<moveset.size();i++)
@@ -584,7 +605,16 @@ public class App
         System.out.println("The updated defense of Player 2 legend is " + otherLegend.getStats().getDefense());
         System.out.println();
     }
-
+    
+    /**
+     * Player 2 attacks player 1 with there selected move
+     * Precondition there is another legend to hit and player 2 has a legend that can hit
+     * postcondition attack is done and output is printed in terminal
+     * @param move Move selcted by player 2
+     * @param moveset List of avaliable move for player 2 to choose
+     * @param legend Current legend of player 2
+     * @param otherLegend Curerent legend of player 1
+     */
     public static void attackPlayer1(int move, ArrayList<Move> moveset,Legends legend, Legends otherLegend)
     {
         for(int i = 0 ; i<moveset.size();i++)
@@ -616,7 +646,13 @@ public class App
         System.out.println("The updated defense of Player 1 legend is " + legend.getStats().getDefense());
         System.out.println();
     }
-
+    /**
+     * Checks to see if player has any alive legends
+     * precondition player has legends
+     * postcondition returns true if player has 1 or more legends alive returns false if player has no legends
+     * @param player the player to check
+     * @return returns true if player has 1 or more legends alive returns false if player has no legends
+     */
     public static boolean hasAliveLegends(Player player)
     {
         int elimination = 0;
@@ -636,12 +672,18 @@ public class App
             return true;
         }
     }
-
+    /**
+     * checks if current legend is alive
+     * precondition the current legend exist
+     * postcondition returns true if player current legends has more then 0 hp otherwise returns false
+     * @param currentLegend The legend to check
+     * @return returns true if player current legends has more then 0 hp otherwise returns false
+     */
     public static boolean isCurrentLegendAlive(Legends currentLegend)
     {
         if(currentLegend.getStats().getHP()<=0)
         {
-            return false;
+            return false; 
         }
         else
         {
@@ -649,8 +691,12 @@ public class App
         }
     }
     /**
-     * Swap players legend out whenever there current legend goes down to 0 hp
-     * @param player
+     * Swap players dead legend to alive legend in players list
+     * precondition the player has legends
+     * postconditions the player has an alive legend in the character list
+     * the legends get swapped to first alive found legend 
+     * if no alive legends are found then it print out that the player has no alive legends
+     * @param player player to check
      */
     public static void swapToAliveLegend(Player player)
     {
