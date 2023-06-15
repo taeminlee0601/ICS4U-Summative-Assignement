@@ -3,10 +3,7 @@ import java.util.Scanner;
 
 public class App
 {
-    /**
-     * Creates stat objects for all legends to later pull from
-     * @param args
-     */
+   
     public static void main(String[]args)
     {
         Stats yogStat = new Stats(900,100,50,150);
@@ -276,7 +273,16 @@ public class App
     }
 
     
-    
+    /**
+     * Runs all the actions for the game attacking,buffing and swaping
+     * Precondition Players have already picked legends and have legends in there arraylist
+     * Postcondition will print various thinhs depending on user input
+     * if they hit [1] they will attack the other legends and it will show them there possible moveset
+     * if they hit [2] they will buff there legends stat the cant max buff 5 time other wise its invalid input
+     * if they hit [3] they will choose to swap to a diffrent legend in ther party if they have no alive legends invalid inpit
+     * @param player1 User 1 with 3 legends in his arraylist
+     * @param player2 User 2 with 3 legends in his arrayList
+     */
     public static void game(Player player1, Player player2)
     {
         boolean turn1 = true;
